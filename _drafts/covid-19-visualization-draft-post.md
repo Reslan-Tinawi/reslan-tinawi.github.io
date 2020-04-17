@@ -11,10 +11,7 @@ This post will demonstrates different interactive visualizations of the novel *C
 # Most affected countries:
 The following pie chart, shows the first ten countries, by the number of deaths.
 
-<!-- <iframe src="/assets/visualizations/most_affected_countries-pie_chart.html" id="igraph" scrolling="no" style="border:none;" seamless="seamless" height="525" width="100%" class="full"></iframe> -->
-<div style="width: 600px; height: 500px;" class="visualization-container">
-    <iframe src="/assets/visualizations/most_affected_countries-pie_chart.html" id="igraph" scrolling="no" style="border: none; position: relative; height: 100%; width: 100%;" seamless="seamless"></iframe>
-</div>
+{% include covid-graphs/most_affected_countries-pie_chart.html %}
 
 From this graph, we can see that the most hit countries by the pandemic, are the european countries, and the U.S., although the virus originated from China.
 
@@ -40,5 +37,16 @@ As it's shown in these tables, it took time for the viruse to spread across the 
 For example, Italy and the U.S. had the first deaths reported in the late of February, which is a month later after the first deaths were reported in China, and yet somehow *tragically*, they ended up with the highest death tolls in the world.
 
 # Glance over time
-Since the data provides a date of the observed measures on a daily basis, I will try to show how the progressive spread of the virus, and the exponential growth in the cases.
+Since the data provides a date of the observed measures on a daily basis, I will try to show how the virus spread progressively, and how the number of cases growing exponentially.
 
+Deaths Trajectory
+{% include covid-graphs/deaths_time_series.html %}
+
+Infections Trajectory
+{% include covid-graphs/confirmed_time_series.html %}
+
+Recovered Trajectory
+{% include covid-graphs/recovered_time_series.html %}
+
+Choropleth Map
+{% include covid-graphs/deaths_choropleth_map.html %}
