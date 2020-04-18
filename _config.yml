@@ -30,8 +30,8 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-# remote_theme: "mmistakes/minimal-mistakes@4.19.1"
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.19.1"
+# theme: minimal-mistakes-jekyll
 
 minimal_mistakes_skin: "dark"
 github: [metadata]
