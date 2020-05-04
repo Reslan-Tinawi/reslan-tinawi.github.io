@@ -1,6 +1,6 @@
 ---
 title: Covid-19 Interactive Visualization
-layout: splash
+layout: single
 classes: wide
 ---
 
