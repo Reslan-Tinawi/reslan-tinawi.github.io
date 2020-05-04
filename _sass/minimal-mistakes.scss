@@ -38,3 +38,14 @@
 @import "minimal-mistakes/archive";
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
+
+// overriding the CSS to make the pages fully-wide (no empty space on the left)
+// according to this issue: https://github.com/mmistakes/minimal-mistakes/issues/1322
+article.page {
+    float: left;
+    width: 100%;
+}
+
+.page__related {
+    width: 100%;
+}
