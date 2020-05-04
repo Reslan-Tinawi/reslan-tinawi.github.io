@@ -32,8 +32,8 @@ author:
   avatar   : "/assets/images/bio-photo.jpg"
   bio      : "Data Scientist (early release!)"
   location : "Damascus, Syria"
-  linkedin : "https://www.linkedin.com/in/reslan-al-tinawi-33b7b482/"
-  github   : "https://github.com/Reslan-Tinawi" 
+  linkedin : "reslan-al-tinawi"
+  github   : "Reslan-Tinawi" 
 
 minimal_mistakes_skin: "dark"
 github: [metadata]
