@@ -50,3 +50,8 @@ I will use the [20 Newsgroups dataset](http://qwone.com/~jason/20Newsgroups/), q
     </tr>
 </table>
 
+# Categories Percentages
+{% include text-classification-post-charts/categories-percentages-pie-chart.html %}
+
+# Average Article Length
+{% include text-classification-post-charts/average-article-length-bar-chart.html %}
