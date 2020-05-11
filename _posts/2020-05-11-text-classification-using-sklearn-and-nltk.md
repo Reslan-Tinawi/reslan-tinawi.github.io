@@ -50,6 +50,11 @@ I will use the [20 Newsgroups dataset](http://qwone.com/~jason/20Newsgroups/), q
     </tr>
 </table>
 
+# A glance over the data:
+The dataset consists of 18,846 samples divided into 20 classes.
+
+<!-- TODO: make sure the following charts are centered -->
+
 # Categories Percentages
 {% include text-classification-post-charts/categories-percentages-pie-chart.html %}
 
