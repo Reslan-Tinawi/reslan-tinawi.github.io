@@ -51,12 +51,27 @@ I will use the [20 Newsgroups dataset](http://qwone.com/~jason/20Newsgroups/), q
 </table>
 
 # A glance over the data:
+
 The dataset consists of 18,846 samples divided into 20 classes.
+
+Before jumping right away to the machine learning part (training and validating the model), it's always better perform some [Exploratory Data Analysis (EDA)](https://en.wikipedia.org/wiki/Exploratory_data_analysis), Wikipedia's definition of EDA:
+> In statistics, exploratory data analysis (EDA) is an approach to analyzing data sets to summarize their main characteristics, often with visual methods. A statistical model can be used or not, but primarily EDA is for seeing what the data can tell us beyond the formal modeling or hypothesis testing task.
+
+I won't go into detail about the EDA, but a good read about it is this nice article: [What is Exploratory Data Analysis?](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15)
+
+Simply put, we can say that EDA is the set of methods that helps us to reveal characteristics of the data we're dealing with, in this post I'll only perform a few *visualization* on the data, and see if it needs any further data cleaning.
+
+<!-- Check the appropriate way to quote -->
 
 <!-- TODO: make sure the following charts are centered -->
 
 # Categories Percentages
+
+In balanced data each class (label) has an (almost) equal number of instances, as opposed to imbalanced data in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage.
+
+The following chart shows that our dataset is *balanced* because classes have a nearly equal number of instances.
+
 {% include text-classification-post-charts/categories-percentages-pie-chart.html %}
 
-# Average Article Length
-{% include text-classification-post-charts/average-article-length-bar-chart.html %}
+<!-- # Average Article Length
+{% include text-classification-post-charts/average-article-length-bar-chart.html %} -->
