@@ -55,7 +55,11 @@ Before jumping right away to the machine learning part (training and validating 
 
 I won't go into detail about the EDA, but a good read about it is this nice article: [What is Exploratory Data Analysis?](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15)
 
-Simply put, we can say that EDA is the set of methods that helps us to reveal characteristics of the data we're dealing with, in this post I'll only perform a few *visualization* on the data, and see if it needs any further data cleaning.
+Simply put, we can say that EDA is the set of methods that helps us to reveal characteristics of the data we're dealing with, in this post I'll only perform a few *visualization* on the data, and see if it needs any further cleaning.
+
+*Note*: for creating the visualization I'll use two data visualization libraries:
+- [seaborn](https://seaborn.pydata.org/): Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
+- [Plotly](https://plotly.com/python/): Plotly's Python graphing library makes *interactive*, publication-quality graphs.
 
 <!-- Check the appropriate way to quote -->
 
@@ -85,6 +89,8 @@ The previous two charts gave us only statistics about the data, not the actual c
 
 Wordsclouds are useful for quickly perceiving the dominant words in data, they depict words in different sizes, the higher the word frequency the bigger its size in the visualization.
 
+The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generate using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
+
 <figure>
     <a href="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
         <img src="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
@@ -101,3 +107,4 @@ Wordsclouds are useful for quickly perceiving the dominant words in data, they d
 </figure>
 
 We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are know as the stopwords, and they aremoved from the data before training the model.
+
