@@ -100,3 +100,4 @@ Wordsclouds are useful for quickly perceiving the dominant words in data, they d
     </a>
 </figure>
 
+We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are know as the stopwords, and they aremoved from the data before training the model.
