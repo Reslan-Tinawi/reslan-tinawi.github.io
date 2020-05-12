@@ -2,10 +2,7 @@
 title: Text Classification with Python (and some AI Explainability!)
 layout: single
 classes: wide
-tags:
-  - NLP
-  - sklearn
-  - NLTK
+tags: [NLP, sklearn, NLTK]
 ---
 
 This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
@@ -81,3 +78,25 @@ The following chart shows how the average article length varies by category, one
 We know that the classification will be based on the article content, and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, these facts might later explain why the classifier get confused between categories.
 
 ## Wordclouds:
+
+<!-- TODO: enhance the styling of the wordclouds -->
+
+The previous two charts gave us only statistics about the data, not the actual content of the data, which is *words*.
+
+Wordsclouds are useful for quickly perceiving the dominant words in data, they depict words in different sizes, the higher the word frequency the bigger its size in the visualization.
+
+<figure>
+    <a href="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
+        <img src="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
+    </a>
+    <a href="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
+        <img src="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
+    </a>
+    <a href="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
+        <img src="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
+    </a>
+    <a href="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
+        <img src="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
+    </a>
+</figure>
+
