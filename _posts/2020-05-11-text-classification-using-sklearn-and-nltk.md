@@ -33,8 +33,7 @@ In this post, I'll focus on multiclass classification for classifying news artic
 I will use the [20 Newsgroups dataset](http://qwone.com/~jason/20Newsgroups/), quoting the official dataset website:
 
 > The 20 Newsgroups data set is a collection of approximately 20,000 newsgroup documents, partitioned (nearly) evenly across 20 different newsgroups. The 20 newsgroups collection has become a popular data set for experiments in text applications of machine learning techniques, such as text classification and text clustering.
-
-> The data is organized into 20 different newsgroups, each corresponding to a different topic. Some of the newsgroups are very closely related to each other (e.g. `comp.sys.ibm.pc.hardware` / `comp.sys.mac.hardware`), while others are highly unrelated (e.g `misc.forsale` / `soc.religion.christian`). Here is a list of the 20 newsgroups, partitioned (more or less) according to subject matter: 
+The data is organized into 20 different newsgroups, each corresponding to a different topic. Some of the newsgroups are very closely related to each other (e.g. `comp.sys.ibm.pc.hardware` / `comp.sys.mac.hardware`), while others are highly unrelated (e.g `misc.forsale` / `soc.religion.christian`). Here is a list of the 20 newsgroups, partitioned (more or less) according to subject matter: 
 
 <table style='font-family:"Courier New", Courier, monospace; font-size:80%'>
     <tr>
@@ -65,7 +64,7 @@ Simply put, we can say that EDA is the set of methods that helps us to reveal ch
 
 <!-- TODO: make sure the following charts are centered -->
 
-# Categories Percentages
+## Categories Percentages:
 
 In balanced data each class (label) has an (almost) equal number of instances, as opposed to imbalanced data in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage.
 
@@ -73,5 +72,12 @@ The following chart shows that our dataset is *balanced* because classes have a 
 
 {% include text-classification-post-charts/categories-percentages-pie-chart.html %}
 
-<!-- # Average Article Length
-{% include text-classification-post-charts/average-article-length-bar-chart.html %} -->
+## Average Article Length:
+
+The following chart shows how the average article length varies by category, one might see that the ploitics articles are very lengthy (especially the middle east ones), compared to tech-related articles.
+
+{% include text-classification-post-charts/average-article-length-bar-chart.html %}
+
+We know that the classification will be based on the article content, and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, these facts might later explain why the classifier get confused between categories.
+
+## Wordclouds:
