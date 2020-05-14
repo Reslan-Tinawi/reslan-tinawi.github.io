@@ -151,5 +151,63 @@ We can use `TfidfVectorizer` defined in `Sklearn` to convert our documents to TF
 We can specify the preprocessing steps we want to do, by overriding the method `build_analyzer`, for that I'll create a new class `NLTKVectorizer` that *inherits* the `TfidfVectorizer`, and overrides the `build_analyzer` method.
 In this class I create several preprocessing functions (like: tokenization, lemmatization, stop words removal, ...) and then plug them all together in one function (`analyze_document`) that takes a document as input, and returns a list of tokens in this document. the code for this class can be found here: [NLTKVectorizer](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/blob/master/vectorizers/NLTKVectorizer.py)
 
+This class uses `NLTK` library features: `word_tokenize` and `WordNetLemmatizer`.
+
 # Pipelines:
 
+After creating the vectorizer, our data is now ready to be fed to a classifier:
+
+```python
+# TF-IDF vectorizer, with preprocessing steps from NLTK
+vectorizer = NLTKVectorizer(stop_words=en_stop_words,
+                            max_df=0.5, min_df=10, max_features=10000)
+
+# fit on all the documents
+vectorizer.fit(X)
+
+# vectorize the traing and testing data
+X_train_vect = vectorizer.transform(X_train)
+X_test_vect = vectorizer.transform(X_test)
+
+# Logistic Regression classifier
+lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
+
+# fit on the training data
+lr_clf.fit(X_train_vect, y_train)
+
+# predict using the test data
+y_pred = lr_clf.predict(X_test_vect)
+```
+
+In these few lines, we transformed our text documents into TF-IDF vectors, and trained a logistic regression classifier.
+
+The previous case was the simples scenario, we only used one *data transformation* step, but what if we want to add another transformation step? for example, given that the feature vectors have a high dimensionality (The Curse of Dimensionality), we can use a *dimensionality reduction* algorithm, such as SVD (Singular value decomposition), then the code would look like the following:
+
+```python
+# TF-IDF vectorizer, with preprocessing steps from NLTK
+vectorizer = NLTKVectorizer(stop_words=en_stop_words,
+                            max_df=0.5, min_df=10, max_features=10000)
+
+# fit on all the documents
+vectorizer.fit(X)
+
+# vectorize the traing and testing data
+X_train_vect = vectorizer.transform(X_train)
+X_test_vect = vectorizer.transform(X_test)
+
+# dimensionality reduction transformer
+svd = TruncatedSVD(n_componentsint=100)
+
+# reduce the features vector space
+X_train_vect_reduced = svd.fit_transform(X_train_vect)
+X_test_vect_reduced = svd.fit_transform(X_test_vect)
+
+# Logistic Regression classifier
+lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
+
+# fit on the training data
+lr_clf.fit(X_train_vect_reduced, y_train)
+
+# predict using the test data
+y_pred = lr_clf.predict(X_test_vect_reduced)
+```
