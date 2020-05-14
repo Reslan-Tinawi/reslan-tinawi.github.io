@@ -142,6 +142,14 @@ TF-IDF is a weighting technique, in which every term is assigned a value relativ
 
 The general idea behind this techniques is that meaning of a document is encoded in the rare terms it has.
 
-For example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), while other terms like `one`, `think`, `get`, and `would` which occur frequently in our corpus, but they are less significant for classifing sport articles, and therfore should be assigned lower weights.
+For example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifing sport articles, and therfore should be assigned lower weights.
 
 For more details and intuition behind the TF-IDF method, I recomment this article: [What is TF-IDF?](https://monkeylearn.com/blog/what-is-tf-idf/)
+
+We can use `TfidfVectorizer` defined in `Sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular exxpression pattern, and it doesn't perform any further text-related data preprocessing.
+
+We can specify the preprocessing steps we want to do, by overriding the method `build_analyzer`, for that I'll create a new class `NLTKVectorizer` that *inherits* the `TfidfVectorizer`, and overrides the `build_analyzer` method.
+In this class I create several preprocessing functions (like: tokenization, lemmatization, stop words removal, ...) and then plug them all together in one function (`analyze_document`) that takes a document as input, and returns a list of tokens in this document. the code for this class can be found here: [NLTKVectorizer](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/blob/master/vectorizers/NLTKVectorizer.py)
+
+# Pipelines:
+
