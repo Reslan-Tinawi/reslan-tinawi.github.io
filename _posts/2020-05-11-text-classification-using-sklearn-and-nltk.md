@@ -247,3 +247,40 @@ There are many great resources about the importance of using pipelines, and how 
 - [Deploying Machine Learning using sklearn pipelines](https://www.youtube.com/watch?v=URdnFlZnlaE)
 - [A Simple Example of Pipeline in Machine Learning with Scikit-learn](https://towardsdatascience.com/a-simple-example-of-pipeline-in-machine-learning-with-scikit-learn-e726ffbb6976)
 - [A Deep Dive Into Sklearn Pipelines](https://www.kaggle.com/baghern/a-deep-dive-into-sklearn-pipelines)
+
+# Hyper-parameter tuning and cross validation:
+
+After creating the pipeline object, we can use like any other *estimator* that has the methods `fit` and `predict`.
+
+```python
+# fit the pipeline on the training data
+pipeline.fit(X_train, y_train)
+
+# use the pipeline for predicting using test data
+y_pred = pipeline.predict(X_test)
+```
+
+But there are two questions here:
+
+- How can we make sure that the model is not overfitting on the training data, and it generalizes well on the whole data.
+- What is the set of optimal hyper-parameters of our model that yields the best results.
+
+## k-fold Cross Validation:
+
+To make sure that the whole data is exposed to the model, we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
+
+- Train the model using the *k-1* folds.
+- Use the remaining fold as a validation set.
+Evaluate the final model using the held out test set.
+
+<!-- TODO: center the image -->
+<figure>
+    <a href="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
+        <img id="cross-validation-figure" src="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
+    </a>
+</figure>
+
+
+## Grid Search:
+
+## GridSearchCV:
