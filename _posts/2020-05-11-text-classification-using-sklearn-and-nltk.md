@@ -354,7 +354,7 @@ The following table shows the classification report (generated using `sklearn`'s
 
 <!-- TODO: center the image -->
 <figure>
-    <a href="/assets/images/text-classification-post-assets/classification-reportjpg">
+    <a href="/assets/images/text-classification-post-assets/classification-reportjpg.jpg">
         <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
     </a>
 </figure>
