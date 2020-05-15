@@ -165,7 +165,7 @@ vectorizer = NLTKVectorizer(stop_words=en_stop_words,
 # fit on all the documents
 vectorizer.fit(X)
 
-# vectorize the traing and testing data
+# vectorize the training and testing data
 X_train_vect = vectorizer.transform(X_train)
 X_test_vect = vectorizer.transform(X_test)
 
@@ -181,7 +181,7 @@ y_pred = lr_clf.predict(X_test_vect)
 
 In these few lines, we transformed our text documents into TF-IDF vectors, and trained a logistic regression classifier.
 
-The previous case was the simples scenario, we only used one *data transformation* step, but what if we want to add another transformation step? for example, given that the feature vectors have a high dimensionality (The Curse of Dimensionality), we can use a *dimensionality reduction* algorithm, such as SVD (Singular value decomposition), then the code would look like the following:
+The previous case was the simplest scenario, we only used one *data transformation* step, but what if we want to add another transformation step? for example, given that the feature vectors have a high dimensionality (The Curse of Dimensionality), we can use a *dimensionality reduction* algorithm, such as SVD (Singular value decomposition) to reduce the dimension of the TF-IDF vectors, then the code would look like the following:
 
 ```python
 # TF-IDF vectorizer, with preprocessing steps from NLTK
@@ -191,7 +191,7 @@ vectorizer = NLTKVectorizer(stop_words=en_stop_words,
 # fit on all the documents
 vectorizer.fit(X)
 
-# vectorize the traing and testing data
+# vectorize the training and testing data
 X_train_vect = vectorizer.transform(X_train)
 X_test_vect = vectorizer.transform(X_test)
 
@@ -211,3 +211,39 @@ lr_clf.fit(X_train_vect_reduced, y_train)
 # predict using the test data
 y_pred = lr_clf.predict(X_test_vect_reduced)
 ```
+
+We can see what's happening here: for each data transformation step, we create two variables, one for training and one for testing, which would make the code very hard to debug if anything goes wrong, and if we wanted to change the parameters of a transformer (say the `max_features` parameter) we would have to run *all* the transformations steps sequentially.
+
+Sklearn has a very nice feature for doing these steps elegantly: [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)
+
+Pieplines are the recommended approach of combining data processing steps with machine learning stpes, they let us *seamlessly* apply many transformations on the input data, and finally train a model on the produced data.
+
+They are considered as one of the best-practises in `sklearn`.
+
+Here, we will create a two-steps pipeline, which may doesn't show how important it is, but it's very common to create a more complex pipline consisting of many data transformations steps followed by a machine learning model.
+
+Another bonus of pieplines, is that they can help us to perform cross validation on the data all at once, and tune the hyper-parameters.
+
+```python
+# text vectorizer
+vectorizer = NLTKVectorizer(stop_words=en_stop_words,
+                            max_df=0.5, min_df=10, max_features=10000)
+
+# Logistic Regression classifier
+lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
+
+pipeline = Pipeline([
+    ('vect', vectorizer),
+    ('clf', lr_clf)
+])
+```
+
+The previous code creates a very minimalistic Pipeline consisting of only two stpes:
+- Text Vectorizer (Transformer): in this step the vectorizer takes the raw text input, perform some data cleaning, text representation (using TF-IDF), and returns an array of features for each sample in the dataset.
+- Classifier (estimator): the classifier then takes the output produced by the previous step (which is the features matrix), and use it as input to train machine learning algorithm to learn from the data.
+
+There are many great resources about the importance of using pipelines, and how to use them:
+
+- [Deploying Machine Learning using sklearn pipelines](https://www.youtube.com/watch?v=URdnFlZnlaE)
+- [A Simple Example of Pipeline in Machine Learning with Scikit-learn](https://towardsdatascience.com/a-simple-example-of-pipeline-in-machine-learning-with-scikit-learn-e726ffbb6976)
+- [A Deep Dive Into Sklearn Pipelines](https://www.kaggle.com/baghern/a-deep-dive-into-sklearn-pipelines)
