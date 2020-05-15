@@ -348,3 +348,10 @@ Next we fit the data, and then get the best parameters found by the grid search,
 
 *Note*: performing grid search with many parameters takes a quite lone time, so be careful what parmeters to pick, and the list of values to search over.
 
+# Model evaluation:
+
+The following table shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
+
+And the following figure shows the confusion matrix:
+
+# Model explainability:
