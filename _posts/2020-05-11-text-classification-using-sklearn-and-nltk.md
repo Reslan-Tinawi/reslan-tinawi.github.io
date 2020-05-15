@@ -267,7 +267,7 @@ But there are two questions here:
 
 ## k-fold Cross Validation:
 
-To make sure that the whole data is exposed to the model, we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
+For avoiding overfitting, we need to make sure that the whole data is exposed to the model, we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
 
 - Train the model using the *k-1* folds.
 - Use the remaining fold as a validation set.
@@ -280,7 +280,71 @@ Evaluate the final model using the held out test set.
     </a>
 </figure>
 
-
 ## Grid Search:
 
+Hyper-parameters are parameters that are not learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructer of transformer and estimator classes, example of hyper-parameters: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`.
+
+It's recommended to search the hyper-parameter space, and finding the optimal values that yields the best accuracy.
+
+Typical approach for searching the optimal parameters is *Grid Search*, which simply performs a brute force search over the specified set of parameters values.
+
 ## GridSearchCV:
+
+Sklearn supports both cross validation and hyper-parameters tuning in one place: [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+
+The first step before using grid search, is defining the list of hyper-parameters and the list of values to search over, then we create a `GridSearchCV` and pass it our model and the list of parameters.
+
+```python
+
+# create several classifier, to find the best classification model
+
+# Logistic Regression classifier
+lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
+
+# Naive Bayes classifier
+nb_clf = MultinomialNB(alpha=0.01)
+
+# SVM classifier
+svm_clf = LinearSVC(C=1.0)
+
+# Random Forest classifier
+random_forest_clf = RandomForestClassifier(n_estimators=100, criterion='gini',
+                                           max_depth=50, random_state=0)
+
+# define the parameters list
+parameters = {
+    # vectorizer hyper-parameters
+    'vect__ngram_range': [(1, 1), (1, 2), (1, 3)],
+    'vect__max_df': [0.4, 0.5, 0.6],
+    'vect__min_df': [10, 50, 100],
+    'vect__max_features': [5000, 10000],
+    # classifiers
+    'clf': [lr_clf, nb_clf, svm_clf, random_forest_clf]
+}
+
+# create grid search object, and use the pipeline as an estimator
+grid_search = GridSearchCV(pipeline, parameters, n_jobs=-1)
+
+# fit the grid search on the taining data
+grid_search.fit(X_train, y_train)
+
+# get the list of optimal parameters
+print(grid_search.best_params_)
+```
+
+The parameters list is defined as a python dictionary, where *keys* are parameters names and values are the corresponding search settings.
+
+Since we're performing grid search on pipeline, defining the parameters is a bit different, it has the following pattern: `step_name`__`parameter_name`.
+
+Interestingly, we can treat the classification step of the pipeline as a hyper-parameter, and search for the optimal classifier, I created several classification models beforehead, and used them as values for the `clf` parameter.
+
+Next we fit the data, and then get the best parameters found by the grid search, the results are:
+
+- `ngram_range`: using only unigrams.
+- `max_df`: terms that have a document frequency higher than 50% are ignored.
+- `min_df`: terms that have document frequency strictly lower than 10 are ignored.
+- `max_features`: selecting only 10,000 features.
+- `clf`: the classifier which achieved the highest score is the `LinearSVC`.
+
+*Note*: performing grid search with many parameters takes a quite lone time, so be careful what parmeters to pick, and the list of values to search over.
+
