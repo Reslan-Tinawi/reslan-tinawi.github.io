@@ -352,6 +352,20 @@ Next we fit the data, and then get the best parameters found by the grid search,
 
 The following table shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
+<!-- TODO: center the image -->
+<figure>
+    <a href="/assets/images/text-classification-post-assets/classification-reportjpg">
+        <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
+    </a>
+</figure>
+
 And the following figure shows the confusion matrix:
+
+<!-- TODO: center the image -->
+<figure>
+    <a href="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
+        <img src="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
+    </a>
+</figure>
 
 # Model explainability:
