@@ -348,9 +348,33 @@ Next we fit the data, and then get the best parameters found by the grid search,
 
 *Note*: performing grid search with many parameters takes a quite lone time, so be careful what parmeters to pick, and the list of values to search over.
 
-# Model evaluation:
+# Model evaluation
 
-The following table shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
+## Best classifier:
+
+After finding the best hyper-parameters, we create a pipeline with the best parameters, and use it to fit the data:
+
+```python
+vectorizer = NLTKVectorizer(max_df=0.5, min_df=10, ngram_range=(1, 1),
+                            max_features=10000, stop_words=en_stop_words)
+
+svm_clf = LinearSVC(C=1.0)
+
+clf = CalibratedClassifierCV(base_estimator=svm_clf, cv=5, method='isotonic')
+
+pipeline = Pipeline([
+    ('vect', vectorizer),
+    ('clf', clf)
+])
+
+pipeline.fit(X_train, y_train)
+
+y_pred = pipeline.predict(X_test)
+```
+
+## Evaluation results:
+
+Now we evaluate the model performance, the following table shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
 <!-- TODO: center the image -->
 <figure>
@@ -370,18 +394,18 @@ And the following figure shows the confusion matrix:
 
 # Model explainability:
 
-At this point we should be done, right? after training the model and evaluating it, and achieving good results we should stop.
+At this point we should be done, we've created a multi class classification model, and got *somewhat* good accuracy.
 
-There are many unanswered questions so far, for example:
+But what if we want to dig deeper and understand more of how the model is working, in fact there are many questions about how the model is working, for example:
 
-- How the model is working and making predictions (what are the features).
-- When the model predicts coorectly and when doesn't.
+- How the model makes predictions (what features it uses to decied a particular class).
+- When the model predicts coorectly and when it doesn't.
 - Does the model *generalizes* on the data.
-- And Debugging the model predictions on certain samples.
+- Is this model reliable? can we use it in production with confidence? (most important and relevant question when developing machine learning models)
 
-And most importantly, is this model reliable? can we use it in production with confidence?
+And we might be interested in debugging the model predictions on certain samples, which can helps us understand when the model is failing, and if we can improve it.
 
-We can think of our model more or less like a *Black Box*, it takes some input, and produce some output.
+We can think of our model right now more or less like a *Black Box*, it takes some input, and produce some output, without any explanation.
 
 <!-- TODO: center the image -->
 <figure>
@@ -400,7 +424,7 @@ These libraries differ in the way they work, and the type of models they can *in
 
 ## Model complexity vs interpretability:
 
-*Simple* linear models are easy to explain (since they consists of only linear equations), but their accuracy is low compared to *Complex* non-linear models, which achieve higher accuracy, but are harder to explain.
+Unfortunately, it's not easy to explain all models, *Simple* linear models are easy to explain (since they consists of only linear equations), but their accuracy is low compared to *Complex* non-linear models, which achieve higher accuracy, but are harder to explain.
 
 The following figure illustrates the relation between model accuracy and interpretability (Source: [The balance: Accuracy vs. Interpretability](https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062)):
 
