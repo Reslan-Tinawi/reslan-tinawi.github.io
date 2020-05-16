@@ -7,7 +7,7 @@ tags: [NLP, sklearn, NLTK]
 
 This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
 
-This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing classification models, and provide resources for digging deeper. The source code can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification)
+This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing classification models, and provide resources for digging deeper. The code can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification)
 
 # What is Text Classification?
 
@@ -369,3 +369,50 @@ And the following figure shows the confusion matrix:
 </figure>
 
 # Model explainability:
+
+At this point we should be done, right? after training the model and evaluating it, and achieving good results we should stop.
+
+There are many unanswered questions so far, for example:
+
+- How the model is working and making predictions (what are the features).
+- When the model predicts coorectly and when doesn't.
+- Does the model *generalizes* on the data.
+- And Debugging the model predictions on certain samples.
+
+And most importantly, is this model reliable? can we use it in production with confidence?
+
+We can think of our model more or less like a *Black Box*, it takes some input, and produce some output.
+
+<!-- TODO: center the image -->
+<figure>
+    <a href="/assets/images/text-classification-post-assets/balck-box-ml.png">
+        <img src="/assets/images/text-classification-post-assets/balck-box-ml.png">
+    </a>
+</figure>
+
+The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers and libraries that can be used out of the box for interpreting machine learning and deep learning models:
+
+- [eli5 (short for: Explain like I'm 5)](https://github.com/TeamHG-Memex/eli5)
+- [Lime: Explaining the predictions of any machine learning classifier](https://github.com/marcotcr/lime)
+- [SHAP: A game theoretic approach to explain the output of any machine learning model](https://github.com/slundberg/shap)
+
+These libraries differ in the way they work, and the type of models they can *interpret*.
+
+## Model complexity vs interpretability:
+
+*Simple* linear models are easy to explain (since they consists of only linear equations), but their accuracy is low compared to *Complex* non-linear models, which achieve higher accuracy, but are harder to explain.
+
+The following figure illustrates the relation between model accuracy and interpretability (Source: [The balance: Accuracy vs. Interpretability](https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062)):
+
+<!-- TODO: center the image -->
+<figure>
+    <a href="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
+        <img src="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
+    </a>
+</figure>
+
+Since we're using a *linear SVM* classifier, we'll try to visualize the weights assigned to the features, and see for each class (category) in our data, what are the features that affect the model's prediction positivly and negatively.
+
+Resources about interpreting SVM classifier in `sklearn`:
+- [How does one interpret SVM feature weights?](https://stats.stackexchange.com/questions/39243/how-does-one-interpret-svm-feature-weights/39311#39311)
+- [Visualising Top Features in Linear SVM with Scikit Learn and Matplotlib](https://medium.com/@aneesha/visualising-top-features-in-linear-svm-with-scikit-learn-and-matplotlib-3454ab18a14d)
