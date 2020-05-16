@@ -46,7 +46,7 @@ The data is organized into 20 different newsgroups, each corresponding to a diff
     </tr>
 </table>
 
-# A glance over the data:
+# A glance through the data:
 
 The dataset consists of 18,846 samples divided into 20 classes.
 
@@ -352,7 +352,7 @@ Next we fit the data, and then get the best parameters found by the grid search,
 
 ## Best classifier:
 
-After finding the best hyper-parameters, we create a pipeline with the best parameters, and use it to fit the data:
+After finding the best hyper-parameters, we create a pipeline with those parameters, and use it to fit the data:
 
 ```python
 vectorizer = NLTKVectorizer(max_df=0.5, min_df=10, ngram_range=(1, 1),
@@ -374,7 +374,7 @@ y_pred = pipeline.predict(X_test)
 
 ## Evaluation results:
 
-Now we evaluate the model performance, the following table shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
+Now we evaluate the model performance, the following figure shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
 <!-- TODO: center the image -->
 <figure>
@@ -394,11 +394,11 @@ And the following figure shows the confusion matrix:
 
 # Model explainability:
 
-At this point we should be done, we've created a multi class classification model, and got *somewhat* good accuracy.
+At this point we should be done! we've created a multi class classification model, and got *somewhat* good accuracy.
 
 But what if we want to dig deeper and understand more of how the model is working, in fact there are many questions about how the model is working, for example:
 
-- How the model makes predictions (what features it uses to decied a particular class).
+- How the model makes predictions (what features it uses to predict a particular class).
 - When the model predicts coorectly and when it doesn't.
 - Does the model *generalizes* on the data.
 - Is this model reliable? can we use it in production with confidence? (most important and relevant question when developing machine learning models)
@@ -414,7 +414,7 @@ We can think of our model right now more or less like a *Black Box*, it takes so
     </a>
 </figure>
 
-The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers and libraries that can be used out of the box for interpreting machine learning and deep learning models:
+The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
 
 - [eli5 (short for: Explain like I'm 5)](https://github.com/TeamHG-Memex/eli5)
 - [Lime: Explaining the predictions of any machine learning classifier](https://github.com/marcotcr/lime)
@@ -435,8 +435,22 @@ The following figure illustrates the relation between model accuracy and interpr
     </a>
 </figure>
 
-Since we're using a *linear SVM* classifier, we'll try to visualize the weights assigned to the features, and see for each class (category) in our data, what are the features that affect the model's prediction positivly and negatively.
+Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positivly and negatively.
 
 Resources about interpreting SVM classifier in `sklearn`:
 - [How does one interpret SVM feature weights?](https://stats.stackexchange.com/questions/39243/how-does-one-interpret-svm-feature-weights/39311#39311)
 - [Visualising Top Features in Linear SVM with Scikit Learn and Matplotlib](https://medium.com/@aneesha/visualising-top-features-in-linear-svm-with-scikit-learn-and-matplotlib-3454ab18a14d)
+
+Then I'll use [Lime](https://github.com/marcotcr/lime) library to explain individual predictions.
+
+## Visualizing model's weights:
+
+
+
+## Explaining individual predictions:
+
+### When the model is performing well:
+
+### When the model is performing badly:
+
+# Final remarks:
