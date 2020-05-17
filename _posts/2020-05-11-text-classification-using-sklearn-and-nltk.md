@@ -454,6 +454,8 @@ I'll include here weights visualizations for the following classes:
 
 Visualizations for the rest of the classes can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/tree/master/assets/model-coefficients)
 
+These charts shows us what our SVM model actually learned from the data.
+
 ### Autos class:
 
 {% include text-classification-post-charts/autos-class-bar-chart.html %}
