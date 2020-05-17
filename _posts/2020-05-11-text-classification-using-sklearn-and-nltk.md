@@ -476,6 +476,10 @@ These charts shows us what our SVM model actually learned from the data.
 
 ### When the model is performing well:
 
+{% include text-classification-post-charts/correct-classification-explanation.html %}
+
 ### When the model is performing badly:
+
+{% include text-classification-post-charts/incorrect-classification-explanation.html %}
 
 # Final remarks:
