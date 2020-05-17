@@ -445,7 +445,30 @@ Then I'll use [Lime](https://github.com/marcotcr/lime) library to explain indivi
 
 ## Visualizing model's weights:
 
+I'll include here weights visualizations for the following classes:
 
+- [autos](#autos-class).
+- [graphics](#graphics-class).
+- [medicine](#medicine-class).
+- [politics middle east](#politics-middle-east-class).
+
+Visualizations for the rest of the classes can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/tree/master/assets/model-coefficients)
+
+### Autos class:
+
+{% include text-classification-post-charts/autos-class-bar-chart.html %}
+
+### Graphics class:
+
+{% include text-classification-post-charts/graphics-class-bar-chart.html %}
+
+### Medicine class:
+
+{% include text-classification-post-charts/med-class-bar-chart.html %}
+
+### Politics middle east class:
+
+{% include text-classification-post-charts/politics_mideast-class-bar-chart.html %}
 
 ## Explaining individual predictions:
 
