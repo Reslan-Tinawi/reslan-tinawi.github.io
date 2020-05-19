@@ -24,12 +24,12 @@ description: >- # this means to ignore newlines until "baseurl:"
   Blog about Machine Learning, NLP, Python, and everything in between.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://reslan-tinawi.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-masthead_title: "My Custom Title"
+masthead_title: "Home"
 
 author:
   name     : "Reslan Tinawi"
   avatar   : "/assets/images/bio-photo.jpeg"
-  bio      : "Data Scientist (early release!)"
+  bio      : "Machine Learning Enthusiast"
   location : "Damascus, Syria"
   linkedin : "reslan-al-tinawi-33b7b482"
   github   : "Reslan-Tinawi" 
@@ -44,17 +44,17 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
 
-# defaults:
-#   # _posts
-#   - scope:
-#       path: ""
-#       type: posts
-#     values:
-#       layout: single
-#       read_time: true
-#       comments: true
-#       share: true
-#       related: true
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      read_time: true
+      comments: true
+      share: true
+      related: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
