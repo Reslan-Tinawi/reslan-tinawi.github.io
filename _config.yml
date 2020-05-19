@@ -27,6 +27,12 @@ url: "https://reslan-tinawi.github.io/" # the base hostname & protocol for your 
 masthead_title: "Home"
 search: true
 
+# Analytics
+analytics:
+  provider: "google"
+  google:
+    tracking_id: "UA-167142401-1"
+
 author:
   name     : "Reslan Tinawi"
   avatar   : "/assets/images/bio-photo.jpeg"
