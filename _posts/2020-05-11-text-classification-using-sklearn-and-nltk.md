@@ -35,7 +35,7 @@ This post is not intended to be a step-by-step tutorial, rather, I'll address th
 
 The code used in this post can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification)
 
-# What is Text Classification?
+# What is Text Classification
 
 In short, *Text Classification* is the taks of assigning a set of predifined tags or categories to text according to its content. There are two types of classification tasks:
 
@@ -50,7 +50,7 @@ In this post, I'll focus on multiclass classification for classifying news artic
     </a>
     <figcaption>
         <p>
-            Source: 
+            Source:
             <a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">
                 A Comprehensive Guide to Understand and Implement Text Classification in Python
             </a>
@@ -58,7 +58,7 @@ In this post, I'll focus on multiclass classification for classifying news artic
     </figcaption>
 </figure>
 
-# The dataset:
+# The dataset
 
 I will use the [20 Newsgroups dataset](http://qwone.com/~jason/20Newsgroups/), quoting the official dataset website:
 
@@ -80,7 +80,7 @@ The data is organized into 20 different newsgroups, each corresponding to a diff
     </tr>
 </table>
 
-# A glance through the data:
+# A glance through the data
 
 The dataset consists of 18,846 samples divided into 20 classes.
 
@@ -97,11 +97,7 @@ Simply put, we can say that EDA is the set of methods that helps us to reveal ch
 
 - [Plotly](https://plotly.com/python/): Plotly's Python graphing library makes *interactive*, publication-quality graphs.
 
-<!-- Check the appropriate way to quote -->
-
-<!-- TODO: make sure the following charts are centered -->
-
-## Categories Percentages:
+## Categories Percentages
 
 In balanced data each class (label) has an (almost) equal number of instances, as opposed to imbalanced data in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage.
 
@@ -109,7 +105,7 @@ The following chart shows that our dataset is *balanced* because classes have a 
 
 {% include text-classification-post-charts/categories-percentages-pie-chart.html %}
 
-## Average Article Length:
+## Average Article Length
 
 The following chart shows how the average article length varies by category, one might see that the ploitics articles are very lengthy (especially the middle east ones), compared to tech-related articles.
 
@@ -117,7 +113,7 @@ The following chart shows how the average article length varies by category, one
 
 We know that the classification will be based on the article content, and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, these facts might later explain why the classifier get confused between categories.
 
-## Wordclouds:
+## Wordclouds
 
 <!-- TODO: enhance the styling of the wordclouds -->
 
@@ -153,13 +149,13 @@ The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `p
         <a href="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
             <img src="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
         </a>
-        <div class="caption">Middle-East politics articles</div>
+        <div class="caption">Middle-East Politics articles</div>
     </div>
 </div>
 
 We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are known as the stopwords, and they are removed from the data before training the model.
 
-# Data splitting:
+# Data splitting
 
 Split the data into 75% training and 25% testing, with stratified sampling, to make sure that the class labels percentages in both training and testing data are (nearly) equal.
 
@@ -169,7 +165,7 @@ y = df['category']
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, stratify=y)
 ```
 
-# Text vectorization:
+# Text vectorization
 
 *Note*: in this section and in the following one, I'll draw some ideas from this book (which I really recommend): [Applied Text Analysis with Python](http://shop.oreilly.com/product/0636920052555.do)
 
@@ -208,7 +204,7 @@ In this class I create several preprocessing functions (like: tokenization, lemm
 
 This class uses `NLTK` library features: `word_tokenize` and `WordNetLemmatizer`.
 
-# Pipelines:
+# Pipelines
 
 After creating the vectorizer, our data is now ready to be fed to a classifier:
 
@@ -287,6 +283,7 @@ vectorizer = NLTKVectorizer(stop_words=en_stop_words,
 # Logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
 
+# create pipeline object
 pipeline = Pipeline([
     ('vect', vectorizer),
     ('clf', lr_clf)
@@ -305,7 +302,7 @@ There are many great resources about the importance of using pipelines, and how 
 - [A Simple Example of Pipeline in Machine Learning with Scikit-learn](https://towardsdatascience.com/a-simple-example-of-pipeline-in-machine-learning-with-scikit-learn-e726ffbb6976)
 - [A Deep Dive Into Sklearn Pipelines](https://www.kaggle.com/baghern/a-deep-dive-into-sklearn-pipelines)
 
-# Hyper-parameter tuning and cross validation:
+# Hyper-parameter tuning and cross validation
 
 After creating the pipeline object, we can use like any other *estimator* that has the methods `fit` and `predict`.
 
@@ -322,7 +319,7 @@ But there are two questions here:
 - How can we make sure that the model is not overfitting on the training data, and it generalizes well on the whole data.
 - What is the set of optimal hyper-parameters of our model that yields the best results.
 
-## k-fold Cross Validation:
+## k-fold Cross Validation
 
 For avoiding overfitting, we need to make sure that the whole data is exposed to the model, we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
 
@@ -330,14 +327,13 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
 - Use the remaining fold as a validation set.
 - Evaluate the final model using the held out test set.
 
-<!-- TODO: center the image -->
 <figure style="max-width: 600px; max-height: 500px;">
     <a href="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
         <img src="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg" style="max-width: 600px; max-height: 500px;">
     </a>
     <figcaption>
         <p>
-            Source: 
+            Source:
             <a href="https://scikit-learn.org/stable/modules/cross_validation.html">
                 Sklearn's documentation
             </a>
@@ -345,7 +341,7 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
     </figcaption>
 </figure>
 
-## Grid Search:
+## Grid Search
 
 Hyper-parameters are parameters that are not learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructer of transformer and estimator classes, example of hyper-parameters: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`.
 
@@ -353,14 +349,13 @@ It's recommended to search the hyper-parameter space, and finding the optimal va
 
 Typical approach for searching the optimal parameters is *Grid Search*, which simply performs a brute force search over the specified set of parameters values.
 
-## GridSearchCV:
+## GridSearchCV
 
 Sklearn supports both cross validation and hyper-parameters tuning in one place: [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
 
 The first step before using grid search, is defining the list of hyper-parameters and the list of values to search over, then we create a `GridSearchCV` and pass it our model and the list of parameters.
 
 ```python
-
 # create several classifier, to find the best classification model
 
 # Logistic Regression classifier
@@ -415,7 +410,7 @@ Next we fit the data, and then get the best parameters found by the grid search,
 
 # Model evaluation
 
-## Best classifier:
+## Best classifier
 
 After finding the best hyper-parameters, we create a pipeline with those parameters, and use it to fit the data:
 
@@ -437,11 +432,10 @@ pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
 ```
 
-## Evaluation results:
+## Evaluation results
 
 Now we evaluate the model performance, the following figure shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
-<!-- TODO: center the image -->
 <figure style="max-width: 800px;">
     <a href="/assets/images/text-classification-post-assets/classification-report.jpg">
         <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
@@ -453,7 +447,6 @@ Now we evaluate the model performance, the following figure shows the classifica
 
 And the following figure shows the confusion matrix:
 
-<!-- TODO: center the image -->
 <figure style="max-width: 800px;">
     <a href="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
         <img src="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
@@ -463,7 +456,7 @@ And the following figure shows the confusion matrix:
     </figcaption>
 </figure>
 
-# Model explainability:
+# Model explainability
 
 At this point we should be done! we've created a multi class classification model, and got *somewhat* good accuracy.
 
@@ -478,14 +471,13 @@ And we might be interested in debugging the model predictions on certain samples
 
 We can think of our model right now more or less like a *Black Box*, it takes some input, and produce some output, without any explanation.
 
-<!-- TODO: center the image -->
 <figure style="max-width: 700px;">
     <a href="/assets/images/text-classification-post-assets/balck-box-ml.png">
         <img src="/assets/images/text-classification-post-assets/balck-box-ml.png">
     </a>
     <figcaption>
         <p>
-            Source: 
+            Source:
             <a href="https://medium.com/towards-artificial-intelligence/show-me-the-black-box-3495dd6ff52c">
                 Show Me The Black Box
             </a>
@@ -501,20 +493,19 @@ The field of *Explainable artificial intelligence* (which is concerned with the 
 
 These libraries differ in the way they work, and the type of models they can *interpret*.
 
-## Model complexity vs interpretability:
+## Model complexity vs interpretability
 
 Unfortunately, it's not easy to explain all models, *Simple* linear models are easy to explain (since they consists of only linear equations), but their accuracy is low compared to *Complex* non-linear models, which achieve higher accuracy, but are harder to explain.
 
 The following figure illustrates the relation between model accuracy and interpretability (Source: [The balance: Accuracy vs. Interpretability](https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062)):
 
-<!-- TODO: center the image -->
 <figure>
     <a href="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
         <img src="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
     </a>
     <figcaption>
         <p>
-            Source: 
+            Source:
             <a href="https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062">
                 The balance: Accuracy vs. Interpretability
             </a>
@@ -525,12 +516,14 @@ The following figure illustrates the relation between model accuracy and interpr
 Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positivly and negatively.
 
 Resources about interpreting SVM classifier in `sklearn`:
+
 - [How does one interpret SVM feature weights?](https://stats.stackexchange.com/questions/39243/how-does-one-interpret-svm-feature-weights/39311#39311)
+
 - [Visualising Top Features in Linear SVM with Scikit Learn and Matplotlib](https://medium.com/@aneesha/visualising-top-features-in-linear-svm-with-scikit-learn-and-matplotlib-3454ab18a14d)
 
 Then I'll use [Lime](https://github.com/marcotcr/lime) library to explain individual predictions.
 
-## Visualizing model's weights:
+## Visualizing model's weights
 
 I'll include here weights visualizations for the following classes:
 
@@ -543,30 +536,30 @@ Visualizations for the rest of the classes can be found [here](https://github.co
 
 These charts shows us what our SVM model actually learned from the data.
 
-### Autos class:
+### Autos class
 
 {% include text-classification-post-charts/autos-class-bar-chart.html %}
 
-### Graphics class:
+### Graphics class
 
 {% include text-classification-post-charts/graphics-class-bar-chart.html %}
 
-### Medicine class:
+### Medicine class
 
 {% include text-classification-post-charts/med-class-bar-chart.html %}
 
-### Politics middle east class:
+### Politics middle east class
 
 {% include text-classification-post-charts/politics_mideast-class-bar-chart.html %}
 
-## Explaining individual predictions:
+## Explaining individual predictions
 
-### When the model is performing well:
+### When the model is performing well
 
 {% include text-classification-post-charts/correct-classification-explanation.html %}
 
-### When the model is performing badly:
+### When the model is performing badly
 
 {% include text-classification-post-charts/incorrect-classification-explanation.html %}
 
-# Final remarks:
+# Final remarks
