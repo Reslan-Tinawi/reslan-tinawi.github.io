@@ -400,7 +400,7 @@ Now we evaluate the model performance, the following figure shows the classifica
 
 <!-- TODO: center the image -->
 <figure>
-    <a href="/assets/images/text-classification-post-assets/classification-reportjpg.jpg">
+    <a href="/assets/images/text-classification-post-assets/classification-report.jpg">
         <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
     </a>
 </figure>
