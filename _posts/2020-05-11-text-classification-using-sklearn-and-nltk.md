@@ -471,10 +471,15 @@ And we might be interested in debugging the model predictions on certain samples
 We can think of our model right now more or less like a *Black Box*, it takes some input, and produce some output, without any explanation.
 
 <!-- TODO: center the image -->
-<figure>
+<figure style="max-width: 700px;">
     <a href="/assets/images/text-classification-post-assets/balck-box-ml.png">
         <img src="/assets/images/text-classification-post-assets/balck-box-ml.png">
     </a>
+    <figcaption>
+        <a href="https://medium.com/towards-artificial-intelligence/show-me-the-black-box-3495dd6ff52c">
+            Source: Show Me The Black Box
+        </a>
+    </figcaption>
 </figure>
 
 The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
@@ -496,6 +501,11 @@ The following figure illustrates the relation between model accuracy and interpr
     <a href="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
         <img src="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
     </a>
+    <figcaption>
+        <a href="https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062">
+            Source: The balance: Accuracy vs. Interpretability
+        </a>
+    </figcaption>
 </figure>
 
 Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positivly and negatively.
