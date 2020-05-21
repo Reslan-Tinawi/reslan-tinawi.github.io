@@ -16,6 +16,15 @@ tags: [NLP, sklearn, NLTK]
         margin: 0 auto;
     }
 
+    .row {
+        display: flex;
+    }
+
+    .column {
+        flex: 50%;
+        padding: 5px;
+    }
+
 </style>
 
 This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
@@ -39,7 +48,7 @@ In this post, I'll focus on multiclass classification for classifying news artic
     </a>
     <figcaption>
         <a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">
-            Source
+            Source: A Comprehensive Guide to Understand and Implement Text Classification in Python
         </a>
     </figcaption>
 </figure>
@@ -113,22 +122,37 @@ Wordsclouds are useful for quickly perceiving the dominant words in data, they d
 
 The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generate using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
 
-<figure>
-    <a href="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
-        <img src="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
-    </a>
-    <a href="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
-        <img src="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
-    </a>
-    <a href="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
-        <img src="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
-    </a>
-    <a href="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
-        <img src="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
-    </a>
-</figure>
+<div class="row">
+    <div class="column">
+        <a href="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
+            <img src="/assets/images/text-classification-post-assets/graphics-word-cloud.png">
+        </a>
+         <div class="caption">Graphics articles</div>
+    </div>
+    <div class="column">
+        <a href="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
+            <img src="/assets/images/text-classification-post-assets/medicine-word-cloud.png">
+        </a>
+        <div class="caption">Medicine articles</div>
+    </div>
+</div>
 
-We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are know as the stopwords, and they aremoved from the data before training the model.
+<div class="row">
+    <div class="column">
+        <a href="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
+            <img src="/assets/images/text-classification-post-assets/sport-hockey-word-cloud.png">
+        </a>
+        <div class="caption">Sport-hockey articles</div>
+    </div>
+    <div class="column">
+        <a href="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
+            <img src="/assets/images/text-classification-post-assets/politics-middle-east-word-cloud.png">
+        </a>
+        <div class="caption">Middle-East politics articles</div>
+    </div>
+</div>
+
+We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are known as the stopwords, and they aremoved from the data before training the model.
 
 # Data splitting:
 
