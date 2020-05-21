@@ -5,6 +5,15 @@ classes: wide
 tags: [NLP, sklearn, NLTK]
 ---
 
+<style type="text/css">
+
+    #cross-validation-figure {
+        width: 600px;
+        height: 500px;
+    }
+
+</style>
+
 This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
 
 This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing classification models, and provide resources for digging deeper.
@@ -20,12 +29,17 @@ In short, *Text Classification* is the taks of assigning a set of predifined tag
 
 In this post, I'll focus on multiclass classification for classifying news articles, the following figure outlines the working of news articles classification:
 
-<figure>
+<figure style="max-width: 500px;">
     <a href="/assets/images/text-classification-post-assets/news-articles-classification.jpg">
         <img src="/assets/images/text-classification-post-assets/news-articles-classification.jpg">
     </a>
-    <figcaption><a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">Source</a></figcaption>
+    <figcaption>
+        <a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">
+            Source
+        </a>
+    </figcaption>
 </figure>
+    
 
 # The dataset:
 
