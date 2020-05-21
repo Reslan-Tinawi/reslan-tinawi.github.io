@@ -152,7 +152,7 @@ The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `p
     </div>
 </div>
 
-We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are known as the stopwords, and they aremoved from the data before training the model.
+We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are known as the stopwords, and they are removed from the data before training the model.
 
 # Data splitting:
 
@@ -177,9 +177,13 @@ Our current input is a list of *varied-length* documents, and in order to perfor
 This process is known as *Text Vectorization* where documents are mapped into a numerical vector representation of the same size (the resulting vectors must be all of the same size, which is `n_feature`)
 
 There are different methods of calculating the vector representation, mainly:
+
 - Frequency Vectors.
+
 - One-Hot Encoding.
+
 - Term Frequency–Inverse Document Frequency.
+
 - Distributed Representation.
 
 Discussing the working of each method is beyond the purpose of this article, I'll use the TF-IDF vectorization method.
@@ -285,7 +289,9 @@ pipeline = Pipeline([
 ```
 
 The previous code creates a very minimalistic Pipeline consisting of only two stpes:
+
 - Text Vectorizer (Transformer): in this step the vectorizer takes the raw text input, perform some data cleaning, text representation (using TF-IDF), and returns an array of features for each sample in the dataset.
+
 - Classifier (estimator): the classifier then takes the output produced by the previous step (which is the features matrix), and use it as input to train machine learning algorithm to learn from the data.
 
 There are many great resources about the importance of using pipelines, and how to use them:
@@ -320,10 +326,15 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
 Evaluate the final model using the held out test set.
 
 <!-- TODO: center the image -->
-<figure>
+<figure style="max-width: 600px; max-height: 500px;">
     <a href="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
-        <img id="cross-validation-figure" src="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
+        <img src="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg" style="max-width: 600px; max-height: 500px;">
     </a>
+    <figcaption>
+        <a href="https://scikit-learn.org/stable/modules/cross_validation.html">
+            Source: Sklearn's documentation
+        </a>
+    </figcaption>
 </figure>
 
 ## Grid Search:
