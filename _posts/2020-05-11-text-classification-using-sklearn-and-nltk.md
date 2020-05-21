@@ -323,7 +323,7 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
 
 - Train the model using the *k-1* folds.
 - Use the remaining fold as a validation set.
-Evaluate the final model using the held out test set.
+- Evaluate the final model using the held out test set.
 
 <!-- TODO: center the image -->
 <figure style="max-width: 600px; max-height: 500px;">
@@ -434,19 +434,25 @@ y_pred = pipeline.predict(X_test)
 Now we evaluate the model performance, the following figure shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
 <!-- TODO: center the image -->
-<figure>
+<figure style="max-width: 800px;">
     <a href="/assets/images/text-classification-post-assets/classification-report.jpg">
         <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
     </a>
+    <figcaption>
+        Classification Report
+    </figcaption>
 </figure>
 
 And the following figure shows the confusion matrix:
 
 <!-- TODO: center the image -->
-<figure>
+<figure style="max-width: 800px;">
     <a href="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
         <img src="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
     </a>
+    <figcaption>
+        Confusion Matrix
+    </figcaption>
 </figure>
 
 # Model explainability:
