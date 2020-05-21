@@ -2,7 +2,9 @@
 title: Text Classification with Python (and some AI Explainability!)
 layout: single
 classes: wide
+# TOOD: find out why tags aren't working
 tags: [NLP, sklearn, NLTK]
+toc: true
 ---
 
 <style type="text/css">
@@ -47,9 +49,12 @@ In this post, I'll focus on multiclass classification for classifying news artic
         <img src="/assets/images/text-classification-post-assets/news-articles-classification.jpg">
     </a>
     <figcaption>
-        <a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">
-            Source: A Comprehensive Guide to Understand and Implement Text Classification in Python
-        </a>
+        <p>
+            Source: 
+            <a href="https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/">
+                A Comprehensive Guide to Understand and Implement Text Classification in Python
+            </a>
+        </p>
     </figcaption>
 </figure>
 
@@ -331,9 +336,12 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
         <img src="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg" style="max-width: 600px; max-height: 500px;">
     </a>
     <figcaption>
-        <a href="https://scikit-learn.org/stable/modules/cross_validation.html">
-            Source: Sklearn's documentation
-        </a>
+        <p>
+            Source: 
+            <a href="https://scikit-learn.org/stable/modules/cross_validation.html">
+                Sklearn's documentation
+            </a>
+        </p>
     </figcaption>
 </figure>
 
@@ -476,9 +484,12 @@ We can think of our model right now more or less like a *Black Box*, it takes so
         <img src="/assets/images/text-classification-post-assets/balck-box-ml.png">
     </a>
     <figcaption>
-        <a href="https://medium.com/towards-artificial-intelligence/show-me-the-black-box-3495dd6ff52c">
-            Source: Show Me The Black Box
-        </a>
+        <p>
+            Source: 
+            <a href="https://medium.com/towards-artificial-intelligence/show-me-the-black-box-3495dd6ff52c">
+                Show Me The Black Box
+            </a>
+        </p>
     </figcaption>
 </figure>
 
@@ -502,9 +513,12 @@ The following figure illustrates the relation between model accuracy and interpr
         <img src="/assets/images/text-classification-post-assets/accuracy-vs-interpretability.png">
     </a>
     <figcaption>
-        <a href="https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062">
-            Source: The balance: Accuracy vs. Interpretability
-        </a>
+        <p>
+            Source: 
+            <a href="https://towardsdatascience.com/the-balance-accuracy-vs-interpretability-1b3861408062">
+                The balance: Accuracy vs. Interpretability
+            </a>
+        </p>
     </figcaption>
 </figure>
 
