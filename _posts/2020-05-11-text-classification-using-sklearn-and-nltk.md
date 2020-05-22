@@ -120,13 +120,11 @@ The classification will be based on the article content (words), and classifiers
 
 ## Wordclouds
 
-<!-- TODO: enhance the styling of the wordclouds -->
-
-The previous two charts gave us only statistics about the data, not the actual content of the data, which is *words*.
+The previous two charts gave us only statistical facts about the data, but we're also interested in the actual content of the data, which is *words*.
 
 Wordsclouds are useful for quickly perceiving the dominant words in data, they depict words in different sizes, the higher the word frequency the bigger its size in the visualization.
 
-The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generate using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
+The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generated using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
 
 <div class="row">
     <div class="column">
@@ -158,7 +156,9 @@ The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `p
     </div>
 </div>
 
-We can see that the dominant words in each category are considered descriptive words for the category, with some exceptions, like the word *one* which has a high frequency in these four categories, although it's not a much of a descriptive word, the words wich have a high frequency in the language (like: *the*, *this*, *we*, ... ) are known as the stopwords, and they are removed from the data before training the model.
+<br>
+
+These wordclouds show us what are the most frequent words in each class, words like `image`, `file`, `game`, `patient`, and `arab` are useful words for determining the article category, while other words like `one`, `would`, `also`, and `said` are considered as [stopwords](https://en.wikipedia.org/wiki/Stop_words), because they are common across the differnet categories, and they should be removed from the data.
 
 # Data splitting
 
