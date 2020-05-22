@@ -104,7 +104,7 @@ Simply put, we can say that EDA is the set of methods that helps us to reveal ch
 
 In a *balanced data* each class (label) has an (almost) equal number of instances, as opposed to *imbalanced data* in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage, imbalanced data could cause the model to perform poorly, hence some steps must be performed to solve this issue like dropping the least frequent classes, or joining related classes together, etc ...
 
-The following chart shows that our dataset is *balanced* because classes have a nearly equal number of instances.
+The following chart shows that the dataset is *balanced* because classes have a nearly equal number of instances.
 
 {% include text-classification-post-charts/categories-percentages-pie-chart.html %}
 
@@ -114,7 +114,9 @@ The following chart shows how the average article length varies by category, one
 
 {% include text-classification-post-charts/average-article-length-bar-chart.html %}
 
-We know that the classification will be based on the article content, and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, these facts might later explain why the classifier get confused between categories.
+<br>
+
+The classification will be based on the article content (words), and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, this might later explain why the model have low accuracy on classes with short document length.
 
 ## Wordclouds
 
