@@ -220,7 +220,7 @@ vectorizer.fit(X)
 X_train_vect = vectorizer.transform(X_train)
 X_test_vect = vectorizer.transform(X_test)
 
-# Logistic Regression classifier
+# logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
 
 # fit on the training data
@@ -232,7 +232,10 @@ y_pred = lr_clf.predict(X_test_vect)
 
 In these few lines, we transformed our text documents into TF-IDF vectors, and trained a logistic regression classifier.
 
-The previous case was the simplest scenario, we only used one *data transformation* step, but what if we want to add another transformation step? for example, given that the feature vectors have a high dimensionality (The Curse of Dimensionality), we can use a *dimensionality reduction* algorithm, such as SVD (Singular value decomposition) to reduce the dimension of the TF-IDF vectors, then the code would look like the following:
+The previous case was the simplest scenario of creating a classifier, we only used one *data transformation* step (the TF-IDF vectorization), but what if we want to add another transformation step?
+in our previous setting we stated that the TF-IDF vectors should have 10,000 features (argument `max_features=10000`), dealing with such high-dimensional vectors is common issue in machine learning known as [The Curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality) which could make the training process much harder and take longer time.
+
+One way to tackle this problem is the use of [Dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction), we can use a *dimensionality reduction* algorithm, such as SVD (Singular value decomposition) to reduce the dimension of the TF-IDF vectors:
 
 ```python
 # TF-IDF vectorizer, with preprocessing steps from NLTK
@@ -246,14 +249,14 @@ vectorizer.fit(X)
 X_train_vect = vectorizer.transform(X_train)
 X_test_vect = vectorizer.transform(X_test)
 
-# dimensionality reduction transformer
+# dimensionality reduction transformer, reduce the vector dimension to only 100
 svd = TruncatedSVD(n_componentsint=100)
 
 # reduce the features vector space
 X_train_vect_reduced = svd.fit_transform(X_train_vect)
 X_test_vect_reduced = svd.fit_transform(X_test_vect)
 
-# Logistic Regression classifier
+# logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
 
 # fit on the training data
@@ -263,7 +266,7 @@ lr_clf.fit(X_train_vect_reduced, y_train)
 y_pred = lr_clf.predict(X_test_vect_reduced)
 ```
 
-We can see what's happening here: for each data transformation step, we create two variables, one for training and one for testing, which would make the code very hard to debug if anything goes wrong, and if we wanted to change the parameters of a transformer (say the `max_features` parameter) we would have to run *all* the transformations steps sequentially.
+We can see what's happening here: for each data transformation step, we create two variables, one for training and one for testing, which would make the code very hard to debug if anything goes wrong, and if we wanted to change the parameters of a transformer (say the `max_features` parameter) we would have to run *all* the transformations steps sequentially from the first one.
 
 Sklearn has a very nice feature for doing these steps elegantly: [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)
 
@@ -280,7 +283,7 @@ Another bonus of pieplines, is that they can help us to perform cross validation
 vectorizer = NLTKVectorizer(stop_words=en_stop_words,
                             max_df=0.5, min_df=10, max_features=10000)
 
-# Logistic Regression classifier
+# logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
 
 # create pipeline object
@@ -295,6 +298,8 @@ The previous code creates a very minimalistic Pipeline consisting of only two st
 - Text Vectorizer (Transformer): in this step the vectorizer takes the raw text input, perform some data cleaning, text representation (using TF-IDF), and returns an array of features for each sample in the dataset.
 
 - Classifier (estimator): the classifier then takes the output produced by the previous step (which is the features matrix), and use it as input to train machine learning algorithm to learn from the data.
+
+In this way, the data will be process first using the vectorizer, and then used to train a classification model.
 
 There are many great resources about the importance of using pipelines, and how to use them:
 
