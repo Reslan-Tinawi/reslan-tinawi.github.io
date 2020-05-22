@@ -162,7 +162,7 @@ These wordclouds show us what are the most frequent words in each class, words l
 
 # Data splitting
 
-Split the data into 75% training and 25% testing, with stratified sampling, to make sure that the class labels percentages in both training and testing data are (nearly) equal.
+Split the data into 75% training and 25% testing, with stratified sampling, to make sure that the classes percentages in both training and testing data are (nearly) equal.
 
 ```python
 X = df['text']
@@ -172,15 +172,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, strat
 
 # Text vectorization
 
-*Note*: in this section and in the following one, I'll draw some ideas from this book (which I really recommend): [Applied Text Analysis with Python](http://shop.oreilly.com/product/0636920052555.do)
-
-The fourth chapter discusses in detail the different vectorization techniques, with sample implementation.
+*Note*: in this section and in the following one, I'll draw some ideas from this book (which I really recommend): [Applied Text Analysis with Python](http://shop.oreilly.com/product/0636920052555.do), the fourth chapter of the book discusses in detail the different vectorization techniques, with sample implementation.
 
 Machine learning algorithms operate *only* on numerical input, expecting a two-dimensional array of size `n_samples`, `n_features` (where rows are samples, and columns are features)
 
-Our current input is a list of *varied-length* documents, and in order to perform machine learning algorithms on textual data, we need to transform our documents into vector representation.
+Our current input is a list of *varied-length* documents, and in order to perform machine learning algorithms on textual data, we need to transform our documents into **vector representation**.
 
-This process is known as *Text Vectorization* where documents are mapped into a numerical vector representation of the same size (the resulting vectors must be all of the same size, which is `n_feature`)
+This process is known as *Text Vectorization* where documents are mapped into a numerical vector representation of the same size (the resulting vectors must all be of the same size, which is `n_feature`)
 
 There are different methods of calculating the vector representation, mainly:
 
@@ -192,20 +190,17 @@ There are different methods of calculating the vector representation, mainly:
 
 - Distributed Representation.
 
-Discussing the working of each method is beyond the purpose of this article, I'll use the TF-IDF vectorization method.
+Discussing the working of each method is beyond the purpose of this article, here I'll use the TF-IDF vectorization method.
 
-TF-IDF is a weighting technique, in which every term is assigned a value relative to its rareness, the more common the word is the less weight it'll be assigned, and rare terms will be assigned higher weights.
+**TF-IDF** is a weighting technique, in which every word is assigned a value relative to its *rareness*, the more common the word is the less weight it'll be assigned, and rare terms will be assigned higher weights.
 
-The general idea behind this techniques is that meaning of a document is encoded in the rare terms it has.
-
-For example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifing sport articles, and therfore should be assigned lower weights.
+The general idea behind this technique is that meaning of a document is encoded in the rare terms it has, for example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), so they should be assigned higher weights, while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifying sport articles, and therfore should be assigned lower weights.
 
 For more details and intuition behind the TF-IDF method, I recomment this article: [What is TF-IDF?](https://monkeylearn.com/blog/what-is-tf-idf/)
 
-We can use `TfidfVectorizer` defined in `Sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular exxpression pattern, and it doesn't perform any further text-related data preprocessing.
+We can use `TfidfVectorizer` defined in `sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular exxpression pattern, and it doesn't perform any further text preprocessing (like punctuation removal, special charachers removal, stemming, etc ...)
 
-We can specify the preprocessing steps we want to do, by overriding the method `build_analyzer`, for that I'll create a new class `NLTKVectorizer` that *inherits* the `TfidfVectorizer`, and overrides the `build_analyzer` method.
-In this class I create several preprocessing functions (like: tokenization, lemmatization, stop words removal, ...) and then plug them all together in one function (`analyze_document`) that takes a document as input, and returns a list of tokens in this document. the code for this class can be found here: [NLTKVectorizer](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/blob/master/vectorizers/NLTKVectorizer.py)
+We can specify the preprocessing steps we want to do, by overriding the method `build_analyzer`, for that I'll create a new class `NLTKVectorizer` that *inherits* the `TfidfVectorizer`, and overrides the `build_analyzer` method, in this class I'll create several preprocessing functions (like: tokenization, lemmatization, stop words removal, ...) and then plug them all together in one function (`analyze_document`) that takes a document as input, and returns a list of tokens in this document, the code for this class can be found here: [NLTKVectorizer](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/blob/master/vectorizers/NLTKVectorizer.py)
 
 This class uses `NLTK` library features: `word_tokenize` and `WordNetLemmatizer`.
 
