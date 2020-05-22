@@ -31,18 +31,19 @@ toc: true
 
 This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
 
-This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing classification models, and provide resources for digging deeper.
+This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing a classification model, and provide resources for digging deeper.
 
 The code used in this post can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification)
 
 # What is Text Classification
 
-In short, *Text Classification* is the taks of assigning a set of predifined tags or categories to text according to its content. There are two types of classification tasks:
+In short, *Text Classification* is the taks of assigning a set of predifined tags (or categories) to text document according to its content. There are two types of classification tasks:
 
 - Binary Classification: in this type, there are **only** two classes to predict, like spam email classification.
+
 - Multuclass Classification: in this type, the set of classes consists of `n` class (where `n` > 2), and the classifier try to predict one of these `n` classes, like News Articles Classification, where news articles are assigned classes like *politics*, *sport*, *tech*, etc ...
 
-In this post, I'll focus on multiclass classification for classifying news articles, the following figure outlines the working of news articles classification:
+In this post, I'll use *multiclass* classification algorithms for classifying news articles, the following figure outlines the working of news articles classification model:
 
 <figure style="max-width: 500px;">
     <a href="/assets/images/text-classification-post-assets/news-articles-classification.jpg">
@@ -80,11 +81,13 @@ The data is organized into 20 different newsgroups, each corresponding to a diff
     </tr>
 </table>
 
+<br>
+
 # A glance through the data
 
 The dataset consists of 18,846 samples divided into 20 classes.
 
-Before jumping right away to the machine learning part (training and validating the model), it's always better perform some [Exploratory Data Analysis (EDA)](https://en.wikipedia.org/wiki/Exploratory_data_analysis), Wikipedia's definition of EDA:
+Before jumping right away to the machine learning part (training and validating the model), it's always better to perform some [Exploratory Data Analysis (EDA)](https://en.wikipedia.org/wiki/Exploratory_data_analysis), Wikipedia's definition of EDA:
 > In statistics, exploratory data analysis (EDA) is an approach to analyzing data sets to summarize their main characteristics, often with visual methods. A statistical model can be used or not, but primarily EDA is for seeing what the data can tell us beyond the formal modeling or hypothesis testing task.
 
 I won't go into detail about the EDA, but a good read about it is this nice article: [What is Exploratory Data Analysis?](https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15)
@@ -99,7 +102,7 @@ Simply put, we can say that EDA is the set of methods that helps us to reveal ch
 
 ## Categories Percentages
 
-In balanced data each class (label) has an (almost) equal number of instances, as opposed to imbalanced data in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage.
+In a *balanced data* each class (label) has an (almost) equal number of instances, as opposed to *imbalanced data* in which the distribution across the classes is not equal, and a few classes have high percentage of the samples, while others have only a low percentage, imbalanced data could cause the model to perform poorly, hence some steps must be performed to solve this issue like dropping the least frequent classes, or joining related classes together, etc ...
 
 The following chart shows that our dataset is *balanced* because classes have a nearly equal number of instances.
 
