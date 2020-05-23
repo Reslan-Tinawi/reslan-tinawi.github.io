@@ -309,7 +309,7 @@ There are many great resources about the importance of using pipelines, and how 
 
 # Hyper-parameter tuning and cross validation
 
-After creating the pipeline object, we can use like any other *estimator* that has the methods `fit` and `predict`.
+After creating the pipeline object, we can use it like any other *estimator* that has the methods `fit` and `predict`:
 
 ```python
 # fit the pipeline on the training data
@@ -321,16 +321,19 @@ y_pred = pipeline.predict(X_test)
 
 But there are two questions here:
 
-- How can we make sure that the model is not overfitting on the training data, and it generalizes well on the whole data.
-- What is the set of optimal hyper-parameters of our model that yields the best results.
+- How can we make sure that the model is not overfitting on the training data, and it generalizes well on the whole data, the more the model generalizes the better it performs.
+
+- What is the set of optimal *hyper-parameters* of our model that yields the best results.
 
 ## k-fold Cross Validation
 
-For avoiding overfitting, we need to make sure that the whole data is exposed to the model, we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
+For avoiding overfitting, we need to make sure that the whole data is exposed to the model, so we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
 
 - Train the model using the *k-1* folds.
+
 - Use the remaining fold as a validation set.
-- Evaluate the final model using the held out test set.
+
+After performing the previous two stpes for each fold we finally evaluate the final model using the held out test set, the following figure gives a visual explanation of how *k-fold* works:
 
 <figure style="max-width: 600px; max-height: 500px;">
     <a href="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
@@ -348,20 +351,18 @@ For avoiding overfitting, we need to make sure that the whole data is exposed to
 
 ## Grid Search
 
-Hyper-parameters are parameters that are not learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructer of transformer and estimator classes, example of hyper-parameters: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`.
+*Hyper-parameters* are parameters that are not directly learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructer of transformer and estimator classes, example of hyper-parameters are: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`, and different values of these parameters yileds different accuracy, so it's recommended to search the hyper-parameter space, and finding the optimal set of parameters that yields the best accuracy.
 
-It's recommended to search the hyper-parameter space, and finding the optimal values that yields the best accuracy.
-
-Typical approach for searching the optimal parameters is *Grid Search*, which simply performs a brute force search over the specified set of parameters values.
+Typical approach for searching the optimal parameters is [Grid search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search), which simply performs a brute force search over the specified set of parameters values.
 
 ## GridSearchCV
 
 Sklearn supports both cross validation and hyper-parameters tuning in one place: [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
 
-The first step before using grid search, is defining the list of hyper-parameters and the list of values to search over, then we create a `GridSearchCV` and pass it our model and the list of parameters.
+The first step before using grid search is defining the list of hyper-parameters and the list of values to search over, then we create a `GridSearchCV` object and pass the pipeline object and the list of parameters to the grid search object.
 
 ```python
-# create several classifier, to find the best classification model
+# create several classifiers to find the best classification model
 
 # Logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
@@ -401,9 +402,11 @@ The parameters list is defined as a python dictionary, where *keys* are paramete
 
 Since we're performing grid search on pipeline, defining the parameters is a bit different, it has the following pattern: `step_name`__`parameter_name`.
 
-Interestingly, we can treat the classification step of the pipeline as a hyper-parameter, and search for the optimal classifier, I created several classification models beforehead, and used them as values for the `clf` parameter.
+Interestingly, we can treat the classification step of the pipeline as a hyper-parameter, and search for the optimal classifier, so we create several classification models, and use them as values for the `clf` parameter.
 
-Next we fit the data, and then get the best parameters found by the grid search, the results are:
+Next we fit the training data, and then get the best parameters found by the grid search stored in attribute `best_params_` in the grid search object.
+
+The results are:
 
 - `ngram_range`: using only unigrams.
 - `max_df`: terms that have a document frequency higher than 50% are ignored.
@@ -411,7 +414,7 @@ Next we fit the data, and then get the best parameters found by the grid search,
 - `max_features`: selecting only 10,000 features.
 - `clf`: the classifier which achieved the highest score is the `LinearSVC`.
 
-*Note*: performing grid search with many parameters takes a quite lone time, so be careful what parmeters to pick, and the list of values to search over.
+*Note*: performing grid search with many parameters takes a *quite* long time, so be careful what parmeters to pick, and the list of values to search over.
 
 # Model evaluation
 
