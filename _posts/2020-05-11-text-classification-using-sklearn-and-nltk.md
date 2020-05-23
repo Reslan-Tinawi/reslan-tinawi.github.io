@@ -445,8 +445,8 @@ y_pred = pipeline.predict(X_test)
 Now we evaluate the model performance, the following figure shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
 <figure style="max-width: 800px;">
-    <a href="/assets/images/text-classification-post-assets/classification-report.jpg">
-        <img src="/assets/images/text-classification-post-assets/classification-report.jpg">
+    <a href="/assets/images/text-classification-post-assets/classification-report.png">
+        <img src="/assets/images/text-classification-post-assets/classification-report.png">
     </a>
     <figcaption>
         Classification Report
@@ -456,8 +456,8 @@ Now we evaluate the model performance, the following figure shows the classifica
 And the following figure shows the confusion matrix:
 
 <figure style="max-width: 800px;">
-    <a href="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
-        <img src="/assets/images/text-classification-post-assets/confusion-matrix.jpg">
+    <a href="/assets/images/text-classification-post-assets/confusion-matrix.png">
+        <img src="/assets/images/text-classification-post-assets/confusion-matrix.png">
     </a>
     <figcaption>
         Confusion Matrix
