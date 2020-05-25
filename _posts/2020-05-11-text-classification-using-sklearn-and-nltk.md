@@ -576,4 +576,6 @@ After inspecting how the model is making predictions, we saw that word `MR2` is 
 
 {% include text-classification-post-charts/classification-report-improved.html %}
 
+We can see that the `f1-score` had improved by 0.02 from the previous results, and we can repeat the process of understanding when the model is failing, and introduce new steps to the preprocessing step, until we're satisfied with the results or the model is not improving anymore.
+
 # Final remarks
