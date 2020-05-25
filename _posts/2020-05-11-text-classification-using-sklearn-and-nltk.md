@@ -362,8 +362,6 @@ Sklearn supports both cross validation and hyper-parameters tuning in one place:
 The first step before using grid search is defining the list of hyper-parameters and the list of values to search over, then we create a `GridSearchCV` object and pass the pipeline object and the list of parameters to the grid search object.
 
 ```python
-# create several classifiers to find the best classification model
-
 # Logistic Regression classifier
 lr_clf = LogisticRegression(C=1.0, solver='newton-cg', multi_class='multinomial')
 
@@ -449,6 +447,8 @@ Now we evaluate the model performance, the following figure shows the classifica
 And the following figure shows the confusion matrix:
 
 {% include text-classification-post-charts/confusion-matrix.html %}
+
+The model's weighted average `f1-score` is 0.88, which is good result, but looking in detail at the `f1-score` results we see that the model is performing very poorly on classes `sys_ibm_pc_hardware`, `religion_misc` and `graphics`.
 
 # Model explainability
 
