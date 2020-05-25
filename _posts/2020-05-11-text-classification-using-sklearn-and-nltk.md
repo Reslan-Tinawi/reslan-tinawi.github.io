@@ -550,8 +550,13 @@ These charts shows us what our SVM model actually learned from the data.
 
 ## Explaining individual predictions
 
+*Note*: pardon me for the poor styling in the following sections, but as the time of writing there's no way to specify any color scheme in the `LIME` library.
+
 ### When the model is performing well
 
+The following sample shows how the model predicted the correct class which is `politics_mideast` with probability 0.96 (almost certain!), and we can see that words like `israeli`, `israel` and `prison` are very informative to make this prediction, so we can say that the model is learning good features.
+
+But on the other hand, the model had also learned noisy features, for example it learned the word `omar` to predict the class `graphics` (which is completely wrong), `omar` in this context refers to a person name (omar jaber), but with the current preprocessing steps this word is treated as a single token, we can improve this behavior by using using a [Named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) library to detect *person names* and either remove them from the data, or combining the whole person name in one token.
 <br>
 
 {% include text-classification-post-charts/correct-classification-explanation.html %}
