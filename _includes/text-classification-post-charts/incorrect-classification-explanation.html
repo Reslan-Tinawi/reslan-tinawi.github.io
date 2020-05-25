@@ -37089,28 +37089,28 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1RA6GG5VSG4OOOR" style="background-color: white;"></div>
+        <div class="lime top_div" id="top_divSXZRERMM3AZLY5O"></div>
         
         <script>
-        var top_div = d3.select('#top_div1RA6GG5VSG4OOOR').classed('lime top_div', true);
+        var top_div = d3.select('#top_divSXZRERMM3AZLY5O').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["atheism", "autos", "crypt", "electronics", "forsale", "graphics", "med", "motorcycles", "os_ms-windows_misc", "politics_guns", "politics_mideast", "politics_misc", "religion_christian", "religion_misc", "space", "sport_baseball", "sport_hockey", "sys_ibm_pc_hardware", "sys_mac_hardware", "windows_x"], [0.00017485243508521663, 0.5053294201611981, 0.0, 0.00015168135768327704, 0.4870490728823419, 0.0007540074148478913, 0.0005123013400619433, 0.00043215195614183945, 0.0, 0.0009767453904073538, 0.0, 0.0014401253209103712, 0.0010136244578920677, 0.0015259289866135389, 0.00010438690374587433, 0.0, 5.4541583055716336e-05, 7.974553380127909e-05, 7.194135337413806e-05, 0.0003294729228395407]);
+            var pp = new lime.PredictProba(pp_svg, ["atheism", "autos", "crypt", "electronics", "forsale", "graphics", "med", "motorcycles", "os_ms-windows_misc", "politics_guns", "politics_mideast", "politics_misc", "religion_christian", "religion_misc", "space", "sport_baseball", "sport_hockey", "sys_ibm_pc_hardware", "sys_mac_hardware", "windows_x"], [0.0001833732878608602, 0.4996423944224401, 0.0, 0.0012848421257258451, 0.49084291128116214, 0.0013052788612472155, 0.00011953103393356843, 0.0004407596598827978, 0.0, 0.0009967376460430623, 0.0, 0.001442375718846444, 0.000585369057133976, 0.00241137284310351, 0.00010947385285293354, 0.0, 5.451728940831501e-05, 8.363166757290567e-05, 7.544717632869299e-05, 0.0004219840764577939]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["atheism", "autos", "crypt", "electronics", "forsale", "graphics", "med", "motorcycles", "os_ms-windows_misc", "politics_guns", "politics_mideast", "politics_misc", "religion_christian", "religion_misc", "space", "sport_baseball", "sport_hockey", "sys_ibm_pc_hardware", "sys_mac_hardware", "windows_x"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Mazda", 0.2362369828519679], ["MAZDA", 0.23505781417407134], ["Sale", -0.15791594265536119], ["condition", -0.06610217625791635], ["sell", -0.06184330502807819], ["working", -0.04053538007743145], ["Excellent", -0.026173546168553524], ["marks", 0.0245722085891552], ["roof", 0.023614256766432886], ["soon", -0.020900228546806295], ["passed", 0.018227471394605167], ["Contact", -0.0176009704359693], ["Want", 0.011150272719366711], ["inspection", 0.005662857929713883], ["ecs", 0.004863243742099628]], 1, exp_div);
+                exp.show([["mazda", 0.5619500168918644], ["sale", -0.13415487360012612], ["sell", -0.04885876090683692], ["condition", -0.04166355691289489], ["working", -0.02910606314871966], ["excellent", -0.022025572350108085], ["mark", 0.020723443255009476], ["passed", 0.01834242400058525], ["lines", -0.015236499579824614], ["contact", -0.015074412144585573]], 1, exp_div);
                 
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["Sale", 0.21405389253258766], ["Mazda", -0.19762550495425082], ["MAZDA", -0.19506415979726352], ["sell", 0.0961692889811331], ["condition", 0.08232148313202106], ["working", 0.05146624846569344], ["Excellent", 0.0456231631263417], ["marks", -0.030393952157656966], ["Contact", 0.0236359971734878], ["passed", -0.02227684708366544], ["roof", -0.018762633115359834], ["soon", 0.01779039467845172], ["Want", -0.016760391068627867], ["body", -0.014406493262631189], ["o", 0.004949451396285081]], 4, exp_div);
+                exp.show([["mazda", -0.4797753832943499], ["sale", 0.2237006837818699], ["sell", 0.0950536473932072], ["condition", 0.07330876320456801], ["excellent", 0.05435106254831834], ["working", 0.045602106141662484], ["mark", -0.030527590257889904], ["contact", 0.029350257171671796], ["passed", -0.01955420680619313], ["body", -0.01641036334485325]], 4, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["Mazda", 35, 0.2362369828519679], ["MAZDA", 85, 0.23505781417407134], ["Sale", 49, -0.15791594265536119], ["condition", 130, -0.06610217625791635], ["sell", 73, -0.06184330502807819], ["working", 122, -0.04053538007743145], ["Excellent", 112, -0.026173546168553524], ["marks", 184, 0.0245722085891552], ["roof", 175, 0.023614256766432886], ["soon", 207, -0.020900228546806295], ["passed", 146, 0.018227471394605167], ["Contact", 199, -0.0176009704359693], ["Want", 65, 0.011150272719366711], ["inspection", 153, 0.005662857929713883], ["ecs", 12, 0.004863243742099628], ["ecs", 218, 0.004863243742099628]], 1, "From: kohli@ecs.umass.edu\nSubject: Mazda GLC for Sale.\nLines: 5\n\nWant to sell a 1980 MAZDA GLC for $300 or b.o. Excellent working condition. Just\npassed inspection. Has a sun roof. No marks on body.\nContact soon kohli@ecs.umass.edu or (413_549-4738.\n\nkohli \n", raw_div, true);
+            exp.show_raw_text([["mazda", 14, 0.5619500168918644], ["mazda", 41, 0.5619500168918644], ["sale", 20, -0.13415487360012612], ["sell", 36, -0.04885876090683692], ["condition", 65, -0.04166355691289489], ["working", 57, -0.02910606314871966], ["excellent", 47, -0.022025572350108085], ["mark", 98, 0.020723443255009476], ["passed", 75, 0.01834242400058525], ["lines", 25, -0.015236499579824614], ["contact", 108, -0.015074412144585573]], 1, "kohli subject mazda sale lines want sell mazda excellent working condition passed inspection roof mark body contact soon kohli kohli", raw_div, true);
             
         </script>
         </body></html>

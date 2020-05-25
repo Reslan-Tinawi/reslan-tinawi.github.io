@@ -444,25 +444,11 @@ y_pred = pipeline.predict(X_test)
 
 Now we evaluate the model performance, the following figure shows the classification report (generated using `sklearn`'s [classification_report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)) which includes typical classification metrics for each class:
 
-<figure style="max-width: 800px;">
-    <a href="/assets/images/text-classification-post-assets/classification-report.png">
-        <img src="/assets/images/text-classification-post-assets/classification-report.png">
-    </a>
-    <figcaption>
-        Classification Report
-    </figcaption>
-</figure>
+{% include text-classification-post-charts/classification-report.html %}
 
 And the following figure shows the confusion matrix:
 
-<figure style="max-width: 800px;">
-    <a href="/assets/images/text-classification-post-assets/confusion-matrix.png">
-        <img src="/assets/images/text-classification-post-assets/confusion-matrix.png">
-    </a>
-    <figcaption>
-        Confusion Matrix
-    </figcaption>
-</figure>
+{% include text-classification-post-charts/confusion-matrix.html %}
 
 # Model explainability
 
@@ -496,7 +482,9 @@ We can think of our model right now more or less like a *Black Box*, it takes so
 The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
 
 - [eli5 (short for: Explain like I'm 5)](https://github.com/TeamHG-Memex/eli5)
+
 - [Lime: Explaining the predictions of any machine learning classifier](https://github.com/marcotcr/lime)
+
 - [SHAP: A game theoretic approach to explain the output of any machine learning model](https://github.com/slundberg/shap)
 
 These libraries differ in the way they work, and the type of models they can *interpret*.
