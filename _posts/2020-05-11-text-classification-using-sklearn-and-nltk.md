@@ -563,8 +563,17 @@ But on the other hand, the model had also learned noisy features, for example it
 
 ### When the model is performing badly
 
+In the following sample, the model had predicted the class `forsale` while the correct class is `autos`, but the prediction probabilities for both classes are equal, so the model is a bit confused what to do.
+
+Reading through the article, I *myself* actually got confused! so the article goes about someone criticizing the idea of posting car-seats ads, and he mentions two car models, the [Toyota MR2](https://en.wikipedia.org/wiki/Toyota_MR2) and the [Toyota Celica](https://en.wikipedia.org/wiki/Toyota_Celica), these two words are very informative to recognize the `autos` class, but it's hard for the classifier to catch them (since the features are based on frequency statistics), detecting car names also using a [Named-entity recognition](https://en.wikipedia.org/wiki/Named-entity_recognition) might improve the prediction results, with the current preprocessing steps the word `MR2` is removed in `remove_short_tokens` step.
 <br>
 
 {% include text-classification-post-charts/incorrect-classification-explanation.html %}
+
+# Improving accuracy
+
+After inspecting how the model is making predictions, we saw that word `MR2` is actually relevant to the classification, but it's being removed by the analyzer, I'll change the value of `min_token_length` to 2, this way only tokens of two letters or less will be removed, and re-train the model and compare the results.
+
+{% include text-classification-post-charts/classification-report-improved.html %}
 
 # Final remarks
