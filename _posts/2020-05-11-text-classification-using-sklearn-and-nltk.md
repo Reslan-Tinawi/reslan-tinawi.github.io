@@ -448,7 +448,9 @@ And the following figure shows the confusion matrix:
 
 {% include text-classification-post-charts/confusion-matrix.html %}
 
-The model's weighted average `f1-score` is 0.88, which is good result, but looking in detail at the `f1-score` results we see that the model is performing very poorly on classes `sys_ibm_pc_hardware`, `religion_misc` and `graphics`.
+The model's weighted average `f1-score` is 0.88, which is good result, but looking in detail at the `f1-score` results for each class, we see that the model is performing very poorly on classes `sys_ibm_pc_hardware`, `religion_misc` and `graphics`.
+
+For improving the model's performance on these classes, we should start by looking into the features that the model had learned for classifying them, and see if we can improve the features by performing some additional preprocessing on the data.
 
 # Model explainability
 
