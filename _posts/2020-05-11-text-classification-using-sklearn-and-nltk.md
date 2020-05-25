@@ -190,13 +190,13 @@ There are different methods of calculating the vector representation, mainly:
 
 - Distributed Representation.
 
-Discussing the working of each method is beyond the purpose of this article, here I'll use the TF-IDF vectorization method.
+Discussing the working of each method is beyond the purpose of this post, here I'll use the TF-IDF vectorization method.
 
 **TF-IDF** is a weighting technique, in which every word is assigned a value relative to its *rareness*, the more common the word is the less weight it'll be assigned, and rare terms will be assigned higher weights.
 
 The general idea behind this technique is that meaning of a document is encoded in the rare terms it has, for example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), so they should be assigned higher weights, while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifying sport articles, and therfore should be assigned lower weights.
 
-For more details and intuition behind the TF-IDF method, I recomment this article: [What is TF-IDF?](https://monkeylearn.com/blog/what-is-tf-idf/)
+For more details and intuition behind the TF-IDF method, I recommend this article: [What is TF-IDF?](https://monkeylearn.com/blog/what-is-tf-idf/)
 
 We can use `TfidfVectorizer` defined in `sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular exxpression pattern, and it doesn't perform any further text preprocessing (like punctuation removal, special charachers removal, stemming, etc ...)
 
@@ -526,13 +526,19 @@ Then I'll use [Lime](https://github.com/marcotcr/lime) library to explain indivi
 I'll include here weights visualizations for the following classes:
 
 - [autos](#autos-class).
+
 - [graphics](#graphics-class).
+
 - [medicine](#medicine-class).
+
 - [politics middle east](#politics-middle-east-class).
 
 Visualizations for the rest of the classes can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/tree/master/assets/model-coefficients)
 
-These charts shows us what our SVM model actually learned from the data.
+These charts show us what the SVM model actually learned from the data, on the left the negative features
+, which means that if they occured in a document the corresponding class probability will be very low, whilst the positive feautres (on the right) increase the class probability.
+
+The *influence* of a feature (positively or negatively) is shown as the bar size.
 
 ### Autos class
 
