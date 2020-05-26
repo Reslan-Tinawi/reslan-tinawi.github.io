@@ -489,6 +489,7 @@ We can think of our model right now more or less like a *Black Box*, it takes so
         </p>
     </figcaption>
 </figure>
+<br>
 
 The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) caught a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
 
@@ -519,6 +520,7 @@ The following figure illustrates the relation between model accuracy and interpr
         </p>
     </figcaption>
 </figure>
+<br>
 
 Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positively and negatively.
 
@@ -596,3 +598,5 @@ After inspecting how the model is making predictions, we saw that word `MR2` is 
 We can see that the `f1-score` had improved by 0.02 from the previous results, and we can repeat the process of understanding when the model is failing, and introduce new steps to the preprocessing step, until we're satisfied with the results or the model is not improving anymore.
 
 # Final remarks
+
+In this post I talked about the main steps of creating a *machine learning* model and how to use `sklearn` API for that, showed the benefit of explaining the model's prediction to go beyond the accuracy metric and understand what the model is actually doing and how to improve it (if possible).
