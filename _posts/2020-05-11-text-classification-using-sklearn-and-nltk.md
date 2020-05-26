@@ -5,6 +5,7 @@ classes: wide
 # TODO: find out why tags aren't working
 tags: [NLP, sklearn, NLTK]
 toc: true
+custom_css: lime
 ---
 
 <style type="text/css">
