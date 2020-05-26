@@ -2,7 +2,7 @@
 title: Text Classification with Python (and some AI Explainability!)
 layout: single
 classes: wide
-# TOOD: find out why tags aren't working
+# TODO: find out why tags aren't working
 tags: [NLP, sklearn, NLTK]
 toc: true
 ---
@@ -29,7 +29,7 @@ toc: true
 
 </style>
 
-This post will demonstarte the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main stpes of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
+This post will demonstrate the use of machine learning algorithms for the problem of *Text Classification* using [scikit-learn](https://scikit-learn.org/stable/) and [NLTK](https://www.nltk.org/) libraries. I will use the [20 Newsgroups data set](http://qwone.com/~jason/20Newsgroups/) as an example, and talk about the main steps of developing a machine learning model, from loading the data in its raw form to evaluating the model's predictions, and finally I'll shed some light on the concept of *Explainable AI* and use [Lime](https://github.com/marcotcr/lime) library for explaining the model's predictions.
 
 This post is not intended to be a step-by-step tutorial, rather, I'll address the main steps of developing a classification model, and provide resources for digging deeper.
 
@@ -37,13 +37,13 @@ The code used in this post can be found [here](https://github.com/Reslan-Tinawi/
 
 # What is Text Classification
 
-In short, *Text Classification* is the taks of assigning a set of predifined tags (or categories) to text document according to its content. There are two types of classification tasks:
+In short, *Text Classification* is the task of assigning a set of predefined tags (or categories) to text document according to its content. There are two types of classification tasks:
 
 - Binary Classification: in this type, there are **only** two classes to predict, like spam email classification.
 
-- Multuclass Classification: in this type, the set of classes consists of `n` class (where `n` > 2), and the classifier try to predict one of these `n` classes, like News Articles Classification, where news articles are assigned classes like *politics*, *sport*, *tech*, etc ...
+- Multi-class Classification: in this type, the set of classes consists of `n` class (where `n` > 2), and the classifier try to predict one of these `n` classes, like News Articles Classification, where news articles are assigned classes like *politics*, *sport*, *tech*, etc ...
 
-In this post, I'll use *multiclass* classification algorithms for classifying news articles, the following figure outlines the working of news articles classification model:
+In this post, I'll use *multi-class* classification algorithms for classifying news articles, the following figure outlines the working of news articles classification model:
 
 <figure style="max-width: 500px;">
     <a href="/assets/images/text-classification-post-assets/news-articles-classification.jpg">
@@ -110,7 +110,7 @@ The following chart shows that the dataset is *balanced* because classes have a 
 
 ## Average Article Length
 
-The following chart shows how the average article length varies by category, one might see that the ploitics articles are very lengthy (especially the middle east ones), compared to tech-related articles.
+The following chart shows how the average article length varies by category, one might see that the politics articles are very lengthy (especially the middle east ones), compared to tech-related articles.
 
 {% include text-classification-post-charts/average-article-length-bar-chart.html %}
 
@@ -118,13 +118,13 @@ The following chart shows how the average article length varies by category, one
 
 The classification will be based on the article content (words), and classifiers generally look for words that distinguishably describe the categories, and as observed in the previous chart, some categories (`mac_hardware`, `pc_hardware`, ...) are short on average which means they have only a *handful* set of words, this might later explain why the model have low accuracy on classes with short document length.
 
-## Wordclouds
+## Word-clouds
 
 The previous two charts gave us only statistical facts about the data, but we're also interested in the actual content of the data, which is *words*.
 
-Wordsclouds are useful for quickly perceiving the dominant words in data, they depict words in different sizes, the higher the word frequency the bigger its size in the visualization.
+Word-clouds are useful for quickly perceiving the dominant words in data, they depict words in different sizes, the higher the word frequency the bigger its size in the visualization.
 
-The following are 4 wordclouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generated using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
+The following are 4 word-clouds for `grapichs`, `medicine`, `sport-hocky`, and `politics-middle-east` categories, generated using this library: [WordCloud for Python](https://github.com/amueller/word_cloud)
 
 <div class="row">
     <div class="column">
@@ -194,11 +194,11 @@ Discussing the working of each method is beyond the purpose of this post, here I
 
 **TF-IDF** is a weighting technique, in which every word is assigned a value relative to its *rareness*, the more common the word is the less weight it'll be assigned, and rare terms will be assigned higher weights.
 
-The general idea behind this technique is that meaning of a document is encoded in the rare terms it has, for example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), so they should be assigned higher weights, while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifying sport articles, and therfore should be assigned lower weights.
+The general idea behind this technique is that meaning of a document is encoded in the rare terms it has, for example, in our corpus (a corpus is the set of documents), terms like `game`, `team`, `hockey`, and `player` will be *rare* across the corpus, but common in sport articles (articles tagged as `hockey`), so they should be assigned higher weights, while other terms like `one`, `think`, `get`, and `would` which occur more frequently across the corpus, but they are less significant for classifying sport articles, and therefore should be assigned lower weights.
 
 For more details and intuition behind the TF-IDF method, I recommend this article: [What is TF-IDF?](https://monkeylearn.com/blog/what-is-tf-idf/)
 
-We can use `TfidfVectorizer` defined in `sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular exxpression pattern, and it doesn't perform any further text preprocessing (like punctuation removal, special charachers removal, stemming, etc ...)
+We can use `TfidfVectorizer` defined in `sklearn` to convert our documents to TF-IDF vectors. This vectorizer tokenizes sentences using a simple regular expression pattern, and it doesn't perform any further text preprocessing (like punctuation removal, special characters removal, stemming, etc ...)
 
 We can specify the preprocessing steps we want to do, by overriding the method `build_analyzer`, for that I'll create a new class `NLTKVectorizer` that *inherits* the `TfidfVectorizer`, and overrides the `build_analyzer` method, in this class I'll create several preprocessing functions (like: tokenization, lemmatization, stop words removal, ...) and then plug them all together in one function (`analyze_document`) that takes a document as input, and returns a list of tokens in this document, the code for this class can be found here: [NLTKVectorizer](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/blob/master/vectorizers/NLTKVectorizer.py)
 
@@ -270,13 +270,13 @@ We can see what's happening here: for each data transformation step, we create t
 
 Sklearn has a very nice feature for doing these steps elegantly: [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)
 
-Pieplines are the recommended approach of combining data processing steps with machine learning stpes, they let us *seamlessly* apply many transformations on the input data, and finally train a model on the produced data.
+Pipelines are the recommended approach of combining data processing steps with machine learning steps, they let us *seamlessly* apply many transformations on the input data, and finally train a model on the produced data.
 
-They are considered as one of the best-practises in `sklearn`.
+They are considered as one of the best-practices in `sklearn`.
 
-Here, we will create a two-steps pipeline, which may doesn't show how important it is, but it's very common to create a more complex pipline consisting of many data transformations steps followed by a machine learning model.
+Here, we will create a two-steps pipeline, which may doesn't show how important it is, but it's very common to create a more complex pipeline consisting of many data transformations steps followed by a machine learning model.
 
-Another bonus of pieplines, is that they can help us to perform cross validation on the data all at once, and tune the hyper-parameters.
+Another bonus of pipelines, is that they can help us to perform cross validation on the data all at once, and tune the hyper-parameters.
 
 ```python
 # text vectorizer
@@ -293,7 +293,7 @@ pipeline = Pipeline([
 ])
 ```
 
-The previous code creates a very minimalistic Pipeline consisting of only two stpes:
+The previous code creates a very minimalistic pipeline consisting of only two steps:
 
 - Text Vectorizer (Transformer): in this step the vectorizer takes the raw text input, perform some data cleaning, text representation (using TF-IDF), and returns an array of features for each sample in the dataset.
 
@@ -304,7 +304,9 @@ In this way, the data will be process first using the vectorizer, and then used 
 There are many great resources about the importance of using pipelines, and how to use them:
 
 - [Deploying Machine Learning using sklearn pipelines](https://www.youtube.com/watch?v=URdnFlZnlaE)
+
 - [A Simple Example of Pipeline in Machine Learning with Scikit-learn](https://towardsdatascience.com/a-simple-example-of-pipeline-in-machine-learning-with-scikit-learn-e726ffbb6976)
+
 - [A Deep Dive Into Sklearn Pipelines](https://www.kaggle.com/baghern/a-deep-dive-into-sklearn-pipelines)
 
 # Hyper-parameter tuning and cross validation
@@ -321,19 +323,19 @@ y_pred = pipeline.predict(X_test)
 
 But there are two questions here:
 
-- How can we make sure that the model is not overfitting on the training data, and it generalizes well on the whole data, the more the model generalizes the better it performs.
+- How can we make sure that the model is not over-fitting on the training data, and it generalizes well on the whole data, the more the model generalizes the better it performs.
 
 - What is the set of optimal *hyper-parameters* of our model that yields the best results.
 
 ## k-fold Cross Validation
 
-For avoiding overfitting, we need to make sure that the whole data is exposed to the model, so we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
+For avoiding over-fitting, we need to make sure that the whole data is exposed to the model, so we don't just fit the model on the training data, instead, we split the training data into *k-folds* and for each fold we do the following:
 
 - Train the model using the *k-1* folds.
 
 - Use the remaining fold as a validation set.
 
-After performing the previous two stpes for each fold we finally evaluate the final model using the held out test set, the following figure gives a visual explanation of how *k-fold* works:
+After performing the previous two steps for each fold we finally evaluate the final model using the held out test set, the following figure gives a visual explanation of how *k-fold* works:
 
 <figure style="max-width: 600px; max-height: 500px;">
     <a href="/assets/images/text-classification-post-assets/grid_search_cross_validation.jpg">
@@ -351,7 +353,7 @@ After performing the previous two stpes for each fold we finally evaluate the fi
 
 ## Grid Search
 
-*Hyper-parameters* are parameters that are not directly learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructer of transformer and estimator classes, example of hyper-parameters are: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`, and different values of these parameters yileds different accuracy, so it's recommended to search the hyper-parameter space, and finding the optimal set of parameters that yields the best accuracy.
+*Hyper-parameters* are parameters that are not directly learnt by the model, rather, we set them before starting the learning process, and they are passed as arguments for the constructor of transformer and estimator classes, example of hyper-parameters are: `ngram_range`, `max_df`, `min_df`, `max_features`, `C`, and different values of these parameters yields different accuracy, so it's recommended to search the hyper-parameter space, and finding the optimal set of parameters that yields the best accuracy.
 
 Typical approach for searching the optimal parameters is [Grid search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search), which simply performs a brute force search over the specified set of parameters values.
 
@@ -389,7 +391,7 @@ parameters = {
 # create grid search object, and use the pipeline as an estimator
 grid_search = GridSearchCV(pipeline, parameters, n_jobs=-1)
 
-# fit the grid search on the taining data
+# fit the grid search on the training data
 grid_search.fit(X_train, y_train)
 
 # get the list of optimal parameters
@@ -406,13 +408,17 @@ Next we fit the training data, and then get the best parameters found by the gri
 
 The results are:
 
-- `ngram_range`: using only unigrams.
+- `ngram_range`: using only uni-grams.
+
 - `max_df`: terms that have a document frequency higher than 50% are ignored.
+
 - `min_df`: terms that have document frequency strictly lower than 10 are ignored.
+
 - `max_features`: selecting only 10,000 features.
+
 - `clf`: the classifier which achieved the highest score is the `LinearSVC`.
 
-*Note*: performing grid search with many parameters takes a *quite* long time, so be careful what parmeters to pick, and the list of values to search over.
+*Note*: performing grid search with many parameters takes a *quite* long time, so be careful what parameters to pick, and the list of values to search over.
 
 # Model evaluation
 
@@ -459,8 +465,11 @@ At this point we should be done! we've created a multi class classification mode
 But what if we want to dig deeper and understand more of how the model is working, in fact there are many questions about how the model is working, for example:
 
 - How the model makes predictions (what features it uses to predict a particular class).
-- When the model predicts coorectly and when it doesn't.
+
+- When the model predicts correctly and when it doesn't.
+
 - Does the model *generalizes* on the data.
+
 - Is this model reliable? can we use it in production with confidence? (most important and relevant question when developing machine learning models)
 
 And we might be interested in debugging the model predictions on certain samples, which can helps us understand when the model is failing, and if we can improve it.
@@ -481,7 +490,7 @@ We can think of our model right now more or less like a *Black Box*, it takes so
     </figcaption>
 </figure>
 
-The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) catched a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
+The field of *Explainable artificial intelligence* (which is concerned with the tools and methods for explaining and interpreting machine learning algorithms) caught a large interest in the past few years, and there has been many research papers published in this field, and libraries that can be used out of the box for interpreting machine learning and deep learning models:
 
 - [eli5 (short for: Explain like I'm 5)](https://github.com/TeamHG-Memex/eli5)
 
@@ -511,7 +520,7 @@ The following figure illustrates the relation between model accuracy and interpr
     </figcaption>
 </figure>
 
-Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positivly and negatively.
+Since we're using a *linear SVM* classifier, I'll try to visualize the weights assigned to the features, and see for each class (category) in the data, what are the features that affect the model's prediction positively and negatively.
 
 Resources about interpreting SVM classifier in `sklearn`:
 
@@ -536,7 +545,7 @@ I'll include here weights visualizations for the following classes:
 Visualizations for the rest of the classes can be found [here](https://github.com/Reslan-Tinawi/20-newsgroups-Text-Classification/tree/master/assets/model-coefficients)
 
 These charts show us what the SVM model actually learned from the data, on the left the negative features
-, which means that if they occured in a document the corresponding class probability will be very low, whilst the positive feautres (on the right) increase the class probability.
+, which means that if they occurred in a document the corresponding class probability will be very low, whilst the positive features (on the right) increase the class probability.
 
 The *influence* of a feature (positively or negatively) is shown as the bar size.
 
