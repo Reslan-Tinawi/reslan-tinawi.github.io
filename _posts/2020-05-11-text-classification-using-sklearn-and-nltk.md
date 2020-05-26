@@ -158,7 +158,7 @@ The following are 4 word-clouds for `grapichs`, `medicine`, `sport-hocky`, and `
 
 <br>
 
-These wordclouds show us what are the most frequent words in each class, words like `image`, `file`, `game`, `patient`, and `arab` are useful words for determining the article category, while other words like `one`, `would`, `also`, and `said` are considered as [stopwords](https://en.wikipedia.org/wiki/Stop_words), because they are common across the differnet categories, and they should be removed from the data.
+These word-clouds show us what are the most frequent words in each class, words like `image`, `file`, `game`, `patient`, and `arab` are useful words for determining the article category, while other words like `one`, `would`, `also`, and `said` are considered as [stop-words](https://en.wikipedia.org/wiki/Stop_words), because they are common across the different categories, and they should be removed from the data.
 
 # Data splitting
 
@@ -345,7 +345,7 @@ After performing the previous two steps for each fold we finally evaluate the fi
         <p>
             Source:
             <a href="https://scikit-learn.org/stable/modules/cross_validation.html">
-                Sklearn's documentation
+                Sklearn documentation
             </a>
         </p>
     </figcaption>
@@ -477,8 +477,8 @@ And we might be interested in debugging the model predictions on certain samples
 We can think of our model right now more or less like a *Black Box*, it takes some input, and produce some output, without any explanation.
 
 <figure style="max-width: 700px;">
-    <a href="/assets/images/text-classification-post-assets/balck-box-ml.png">
-        <img src="/assets/images/text-classification-post-assets/balck-box-ml.png">
+    <a href="/assets/images/text-classification-post-assets/black-box-ml.png">
+        <img src="/assets/images/text-classification-post-assets/black-box-ml.png">
     </a>
     <figcaption>
         <p>
