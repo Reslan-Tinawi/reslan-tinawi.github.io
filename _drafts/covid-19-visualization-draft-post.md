@@ -9,12 +9,12 @@ classes: wide
 This post will demonstrates different interactive visualizations of the novel *Cororna Virus* (COVID-19). The dataset used is provided by [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), and the visualization were made using [Plotly Python](https://plotly.com/python/). Plotly is super-easy, full packed, and *interactive* visualization library for `Python`.
 
 # Virus overall stats:
-{% include covid-graphs/overall_stats_pie_chart.html %}
+{% include covid-charts/overall_stats_pie_chart.html %}
 
 # Most affected countries:
 The following pie chart, shows the first ten countries, by the number of deaths.
 
-{% include covid-graphs/most_affected_countries-pie_chart.html %}
+{% include covid-charts/most_affected_countries_pie_chart.html %}
 
 From this graph, we can see that the most hit countries by the pandemic, are the european countries, and the U.S., although the virus originated from China.
 
@@ -43,35 +43,38 @@ For example, Italy and the U.S. had the first deaths reported in the late of Feb
 Since the data provides a date of the observed measures on a daily basis, I will try to show how the virus spread progressively, and how the number of cases growing exponentially.
 
 Deaths Trajectory
-{% include covid-graphs/deaths_time_series.html %}
+{% include covid-charts/deaths_trajectory_line_chart.html %}
 
 Infections Trajectory
-{% include covid-graphs/confirmed_time_series.html %}
+{% include covid-charts/infections_trajectory_line_chart.html %}
 
 Recovered Trajectory
-{% include covid-graphs/recovered_time_series.html %}
+{% include covid-charts/recovery_trajectory_line_chart.html %}
 
-Choropleth Map
-{% include covid-graphs/deaths_choropleth_map.html %}
+Choropleth map
+
+{% include covid-charts/global_deaths_choropleth_map.html %}
+
+{% include covid-charts/us_deaths_choropleth_map.html %}
 
 Most affected countries charts (stacked bar char, horizontal stacked bar chart, treemap)
 
-{% include covid-graphs/most_affected_countries_stacked_bar_chart.html %}
+{% include covid-charts/most_affected_countries_stacked_bar_chart.html %}
 
-{% include covid-graphs/most_affected_countries_horizontal_stacked_bar_chart.html %}
+{% include covid-charts/most_affected_countries_horizontal_stacked_bar_chart.html %}
 
-{% include covid-graphs/most_affected_countries_treemap_chart.html %}
+{% include covid-charts/most_affected_countries_treemap_chart.html %}
 
 Countries fatalities rate:
 
-{% include covid-graphs/most_affected_countries_fatality_rate_bar_chart.html %}
+{% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
 
 Cases per million people:
 
-{% include covid-graphs/active_cases_per_million_people_bar_chart.html %}
+{% include covid-charts/active_cases_per_million_people_bar_chart.html %}
 
-{% include covid-graphs/deaths_per_million_people_bar_chart.html %}
+{% include covid-charts/deaths_per_million_people_bar_chart.html %}
 
 Aging and fatality rate relation:
 
-{% include covid-graphs/age_vs_fatality_rate_scatter_plot.html %}
+{% include covid-charts/age_vs_fatality_rate_scatter_plot.html %}
