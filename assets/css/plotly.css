@@ -1,0 +1,4 @@
+/* center align all plotly charts */
+.plotly-graph-div {
+    margin: 0 auto;
+}

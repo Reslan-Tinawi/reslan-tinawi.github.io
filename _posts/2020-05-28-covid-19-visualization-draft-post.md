@@ -1,10 +1,12 @@
 ---
-title: Covid-19 Interactive Visualization
+title: COVID-19 Interactive Visualization
 layout: single
 classes: wide
+toc: true
+custom_css: plotly
 ---
 
-**Last Updated: 16/04/2020**
+**Last Updated: 28/05/2020**
 
 This post will demonstrates different interactive visualizations of the novel *Cororna Virus* (COVID-19). The dataset used is provided by [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), and the visualization were made using [Plotly Python](https://plotly.com/python/). Plotly is super-easy, full packed, and *interactive* visualization library for `Python`.
 
