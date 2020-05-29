@@ -80,3 +80,5 @@ Cases per million people:
 Aging and fatality rate relation:
 
 {% include covid-charts/age_vs_fatality_rate_scatter_plot.html %}
+
+{% include covid-charts/most_affected_countries_daily_deaths_bar_chart.html %}
