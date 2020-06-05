@@ -40,6 +40,8 @@ custom_css: plotly
 
 {% include covid-charts/recovery_trajectory_line_chart.html %}
 
+# Choropleth maps
+
 ## Global deaths Choropleth map
 
 {% include covid-charts/global_deaths_choropleth_map.html %}
