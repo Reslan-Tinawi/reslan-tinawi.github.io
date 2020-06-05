@@ -12,7 +12,7 @@ custom_css: plotly
 
 {% include covid-charts/overall_stats_pie_chart.html %}
 
-# Tree-map chart
+# Treemap chart
 
 {% include covid-charts/most_affected_countries_treemap_chart.html %}
 
