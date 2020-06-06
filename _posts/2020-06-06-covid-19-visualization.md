@@ -8,6 +8,32 @@ custom_css: plotly
 
 **Last Updated: 31/05/2020**
 
+# What is this post about
+
+In this post I'll present different visuals of the novel *Corona virus (COVID-19)*, to show how it impacted the whole world disproportionately, and how contagious it is.
+
+I'll use dataset from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) which contains daily aggregated data, and time series data.
+
+The data provides us with the following four variables:
+
+- **Active**: the number of active cases, cases which have test positive for the virus.
+
+- **Recovered**: number of recovered cases from the virus.
+
+- **Deaths**: number of deaths.
+
+- **Confirmed**: the sum of the previous the three variables.
+
+These variables are provided for each country on a daily basis.
+
+I'll also use two data sources from the [World Bank Group](https://www.worldbank.org/):
+
+- [Total population](https://data.worldbank.org/indicator/SP.POP.TOTL).
+
+- [Population ages 65 and above as a percentage of the total population](https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS).
+
+The population data might not be very accurate, as it was last updated in 2018, but that won't be a problem.
+
 # Overall statistics pie chart
 
 {% include covid-charts/overall_stats_pie_chart.html %}
