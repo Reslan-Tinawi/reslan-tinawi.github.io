@@ -36,7 +36,15 @@ The population data might not be very accurate, as it was last updated in 2018, 
 
 # Overall statistics pie chart
 
+The following pie chart shows the percentages of the three measures: active cases, recovered cases, and total deaths.
+
+At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 6% of the total cases are **deaths**, while around 42% had **recovered** from the virus.
+
 {% include covid-charts/overall_stats_pie_chart.html %}
+
+Pie Chart is misleading in interpreting the severity level of the virus, it doesn't show us how fast the virus is spreading, and how the number of deaths is growing *exponentially*.
+
+Later in this post, I'll use different type of charts to answer the previous questions.
 
 # Treemap chart
 
