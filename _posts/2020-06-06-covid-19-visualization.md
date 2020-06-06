@@ -48,7 +48,13 @@ Later in this post, I'll use different type of charts to answer the previous que
 
 # Treemap chart
 
+The following treemap describes the different proportions countries around the world have been affected by this pandemic, grouped together by continent.
+
 {% include covid-charts/most_affected_countries_treemap_chart.html %}
+
+This treemap serves as an overall-look at the total deaths in the most affected countries.
+
+we can see that **Europe** and **North America** constitute around half of the global deaths.
 
 # Most affected countries
 
