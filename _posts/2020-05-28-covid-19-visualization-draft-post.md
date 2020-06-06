@@ -60,7 +60,7 @@ custom_css: plotly
 
 {% include covid-charts/deaths_per_million_people_bar_chart.html %}
 
-## Countries fatality rate
+# Countries fatality rate
 
 {% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
 
