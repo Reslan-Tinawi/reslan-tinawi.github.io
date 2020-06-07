@@ -62,9 +62,23 @@ After taking a general overview on the virus statistics, and how it has taken do
 
 ## Most affected countries pie chart
 
-
+Looking at the following chart, we can notice that the **U.S.** and the **European** countries are among the most hit countries, and together they constitute *almost* the whole chart.
 
 {% include covid-charts/most_affected_countries_pie_chart.html %}
+
+We can also observe that the chart is divided into three (nearly) equal parts:
+
+- The U.S.
+
+- The U.K., Brazil, and Italy.
+
+- And the remaining eleven countries.
+
+Based on the previous observation, we might ask why the U.S. deaths tolls are so high (as much as eleven countries combined)?
+
+The U.S. is the third in population size (327 million people as of 2018), so we can't compare it with other low-populated countries.
+
+Later in this post, I'll introduce another measures based on the countries populations, to look at the most hit countries from a different perspective.
 
 ## Most affected countries bar chart
 
