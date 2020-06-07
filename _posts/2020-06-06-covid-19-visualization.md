@@ -54,11 +54,15 @@ The following treemap describes the different proportions countries around the w
 
 This treemap serves as an overall-look at the total deaths in the most affected countries.
 
-we can see that **Europe** and **North America** constitute around half of the global deaths.
+We can see that **Europe** and **North America** constitute around half of the global deaths.
 
-# Most affected countries
+# Most hit countries
+
+After taking a general overview on the virus statistics, and how it has taken down many lives across the world, here in this section I'll address the most hit countries in terms of their deaths tolls.
 
 ## Most affected countries pie chart
+
+
 
 {% include covid-charts/most_affected_countries_pie_chart.html %}
 
