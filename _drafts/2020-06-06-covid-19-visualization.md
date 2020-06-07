@@ -1,6 +1,9 @@
 ---
 title: COVID-19 Interactive Visualization
 layout: single
+header:
+  image: /assets/images/covid-19-post-assets/covid.jpg
+  caption: "Photo credit: [**IRF Coronavirus Rehabilitation Tools**](http://www.rehabforum.org/tools.html)"
 classes: wide
 toc: true
 custom_css: plotly
