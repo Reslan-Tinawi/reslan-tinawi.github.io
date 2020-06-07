@@ -82,7 +82,21 @@ Later in this post, I'll introduce another measures based on the countries popul
 
 ## Most affected countries bar chart
 
+The previous chart showed us only the deaths tolls, and discarded the other two variables: active cases, and recovery cases.
+
+The following chart explores the three measures for each country.
+
 {% include covid-charts/most_affected_countries_stacked_bar_chart.html %}
+
+This chart helps us understand the relative proportion of each variable compared to the total confirmed cases in a particular country.
+
+One country that stands out among others is **Germany**, while it has as much confirmed cases as other european countries (France, Italy, and Spain), it managed to control the number of active cases, and ended up with the highest recovery rate, mainly because of its excessive testing.
+
+More on Germany's response to the pandemic in this article: [A German Exception? Why the Country’s Coronavirus Death Rate Is Low](https://www.nytimes.com/2020/04/04/world/europe/germany-coronavirus-death-rate.html)
+
+*Note*: Both U.K. and Netherlands have recovery cases, but it's very low, that it's not visible in the chart, quoting the dataset documentation of the recovery cases are computed:
+
+> Recovered cases outside China are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number.
 
 # Growth (spread) of infections over time
 
