@@ -61,7 +61,7 @@ We can see that **Europe** and **North America** constitute around half of the g
 
 # Most hit countries
 
-After taking a general overview on the virus statistics, and how it has taken down many lives across the world, here in this section I'll address the most hit countries in terms of their deaths tolls.
+After taking a general overview on the virus statistics, and how it has taken down many lives across the world, here in this section I'll address the most hit countries in terms of their death tolls.
 
 ## Most affected countries pie chart
 
@@ -77,7 +77,7 @@ We can also observe that the chart is divided into three (nearly) equal parts:
 
 - And the remaining eleven countries.
 
-Based on the previous observation, we might ask why the U.S. deaths tolls are so high (as much as eleven countries combined)?
+Based on the previous observation, we might ask why the U.S. death tolls are so high (as much as eleven countries combined)?
 
 The U.S. is the third in population size (327 million people as of 2018), so we can't compare it with other low-populated countries.
 
@@ -85,7 +85,7 @@ Later in this post, I'll introduce another measures based on the countries popul
 
 ## Most affected countries bar chart
 
-The previous chart showed us only the deaths tolls, and discarded the other two variables: active cases, and recovery cases.
+The previous chart showed us only the death tolls, and discarded the other two variables: active cases, and recovery cases.
 
 The following chart explores the three measures for each country.
 
