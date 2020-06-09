@@ -131,9 +131,25 @@ At first look, we can observe that the death tolls are growing exponentially! an
 
 # Choropleth maps
 
+A choropleth map is a type of thematic map in which areas are colored relatively to a statistical variable that corresponds to a geographic characteristic within each area.
+
+Here, I'll create two choropleth maps for depicting the death tolls globally and in the U.S. alone.
+
+In the previous *line charts* only a handful set of countries were shown, so the lines don't get cluttered and the figure doesn't lose its quality, using choropleth maps we can show the change in death tolls for all the countries.
+
+Another advantage of choropleth maps is that they provide geographical information, which can be useful to investigate clustering patterns of the virus.
+
+*Note*: use the `play` button to start the animation of the map, the animation frame corresponds to the date of death tolls.
+
 ## Global deaths Choropleth map
 
 {% include covid-charts/global_deaths_choropleth_map.html %}
+
+The virus started in China, and it remained the epicenter of the epidemic until late-March, by that time a cluster of European countries have emerged consisting of Italy, Spain and France, which were the highest death tolls outside China, and Italy became the new epicenter.
+
+Over the next few days, the cluster expanded more and more, to include more neighboring countries, among these countries: the UK, Netherlands, Germany, and Belgium.
+
+After passing 10 days of April, the U.S. death tolls have surpassed Italy's, to become the new epicenter.
 
 ## U.S. deaths Choropleth map
 
