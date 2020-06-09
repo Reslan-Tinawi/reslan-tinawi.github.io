@@ -101,7 +101,13 @@ More on Germany's response to the pandemic in this article: [A German Exception?
 
 > Recovered cases outside China are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number.
 
-# Growth (spread) of infections over time
+# How contagious is the virus
+
+All the previous charts presented the aggregated statistics of the pandemic, ignoring the growth of the virus over time, and giving us no answer to how fast the virus is spreading, and how the number of deaths increases rapidly.
+
+In this, and in the following section I'll take the time variable into account, to look at this pandemic from a different angle.
+
+The following three charts illustrate the accumulated sum of active cases, deaths, and recovered cases over time.
 
 ## Cases over time
 
@@ -114,6 +120,14 @@ More on Germany's response to the pandemic in this article: [A German Exception?
 ## Recovery over time
 
 {% include covid-charts/recovered_cases_line_chart.html %}
+
+At first look, we can observe that the death tolls are growing exponentially! and we can notice some other observations:
+
+- The number of infections in the U.S. has skyrocketed in no time.
+
+- While most countries have reached *more or less* their peak value in terms of death toll, Brazil and Mexico are still far from reaching theirs.
+
+- Italy, Spain, France and the UK were almost identical in their death tolls, until the beginning of May, then the UK surpassed Italy in the recorded deaths, and became Europe's COVID-19 epicenter.
 
 # Choropleth maps
 
