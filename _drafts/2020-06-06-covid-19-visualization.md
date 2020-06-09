@@ -105,15 +105,15 @@ More on Germany's response to the pandemic in this article: [A German Exception?
 
 ## Cases over time
 
-{% include covid-charts/infections_trajectory_line_chart.html %}
+{% include covid-charts/active_cases_line_chart.html %}
 
 ## Deaths over time
 
-{% include covid-charts/deaths_trajectory_line_chart.html %}
+{% include covid-charts/death_tolls_line_chart.html %}
 
 ## Recovery over time
 
-{% include covid-charts/recovery_trajectory_line_chart.html %}
+{% include covid-charts/recovered_cases_line_chart.html %}
 
 # Choropleth maps
 
