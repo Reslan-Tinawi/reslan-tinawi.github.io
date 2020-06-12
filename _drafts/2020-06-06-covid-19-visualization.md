@@ -139,7 +139,7 @@ In the previous *line charts* only a handful set of countries were shown, so the
 
 Another advantage of choropleth maps is that they provide geographical information, which can be useful to investigate clustering patterns of the virus.
 
-*Note*: use the `play` button to start the animation of the map, the animation frame corresponds to the date of death tolls.
+*Note*: use the `play` button to start the animation of the map, the animation frame corresponds to a single day.
 
 ## Global deaths Choropleth map
 
@@ -188,6 +188,12 @@ Although the U.S. has a much higher number of active cases than the UK, we can s
 ## Deaths per million people
 
 {% include covid-charts/deaths_per_million_people_bar_chart.html %}
+
+Interestingly, this chart reveals completely new information.
+
+Belgium has the highest deaths per million people rate, with almost one thousand death million people.
+
+The UK, Spain, Italy, France, and the Netherlands also have very high deaths per million people rate, which suggests that these European countries have lost many lives, although some of them don't have a very high death toll.
 
 # Case fatality rate
 
