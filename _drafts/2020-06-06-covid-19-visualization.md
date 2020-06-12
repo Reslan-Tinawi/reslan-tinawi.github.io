@@ -19,7 +19,7 @@ I'll use dataset from the [Johns Hopkins University](https://github.com/CSSEGISa
 
 The data provides us with the following four variables:
 
-- **Active**: the number of active cases, cases which have test positive for the virus.
+- **Active**: the number of active cases, cases which have tested positive for the virus.
 
 - **Recovered**: number of recovered cases from the virus.
 
