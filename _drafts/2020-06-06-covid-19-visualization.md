@@ -183,6 +183,8 @@ Here, in this section, I'll use population size data, and introduce two new meas
 
 {% include covid-charts/active_cases_per_million_people_bar_chart.html %}
 
+Although the U.S. has a much higher number of active cases than the UK, we can see that they have very close cases per million people, that's mainly because the UK population is very small in comparison with the U.S.'s population.
+
 ## Deaths per million people
 
 {% include covid-charts/deaths_per_million_people_bar_chart.html %}
