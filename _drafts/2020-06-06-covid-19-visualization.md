@@ -167,6 +167,18 @@ It's clear that the pandemic has affected the U.S. states disproportionally, som
 
 # Population-based statistics
 
+So far different types of charts were employed to study the data, and answer different questions, but they all treated different countries the same.
+
+To understand how this pandemic has impacted on different countries, it's not enough to compare countries by their death tolls, for example, **Germany** and **Belgium** have nearly equal death tolls, but their population sizes are relatively different, where Germany's population size equal to 7 times of Belgium's population, which means that Belgium has a *much worse* situation compared to Germany.
+
+An important data that has been ignored so far is the population size data in each country, which can be used to show the relative number of deaths/active cases compared to the country's population size.
+
+Here, in this section, I'll use population size data, and introduce two new measures:
+
+- Active cases per million people: this variable describes the number of active cases per one million people.
+
+- Deaths per million people: this variable describes the number of deaths per one million people.
+
 ## Active cases per million people
 
 {% include covid-charts/active_cases_per_million_people_bar_chart.html %}
