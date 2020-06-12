@@ -145,7 +145,7 @@ Another advantage of choropleth maps is that they provide geographical informati
 
 {% include covid-charts/global_deaths_choropleth_map.html %}
 
-The virus started in China, and it remained the epicenter of the epidemic until late-March, by that time a cluster of European countries have emerged consisting of Italy, Spain and France, which were the highest death tolls outside China, and Italy became the new epicenter.
+The virus started in China, and it remained the epicenter of the epidemic until late-March, by that time a cluster of European countries have emerged consisting of Italy, Spain and France, which were reporting the highest death tolls outside China, and Italy became the new epicenter.
 
 Over the next few days, the cluster expanded more and more, to include more neighboring countries, among these countries: the UK, Netherlands, Germany, and Belgium.
 
@@ -154,6 +154,16 @@ After passing 10 days of April, the U.S. death tolls have surpassed Italy's, to 
 ## U.S. deaths Choropleth map
 
 {% include covid-charts/us_deaths_choropleth_map.html %}
+
+Looking closer at the U.S. deaths (over time) at the state-level, we see that the first deaths were reported in Washington in early-March.
+
+By late-March, different states were reporting deaths, and *New York* was on the lead, with nearly 2,500 death toll.
+
+New York remained the most-hit state in the U.S., and by late-May, a cluster of neighboring states with the highest death tolls have emerged, consisting of: New York, New Jersey, Massachusetts, Pennsylvania and Connecticut.
+
+This 5-states cluster reported the highest death tolls among other states, with nearly 60 thousand deaths, which is more than *half* of the U.S. total death tolls.
+
+It's clear that the pandemic has affected the U.S. states disproportionally, some states reported very high death tolls (in terms of thousands, and ten thousand), while others were barely affected by this pandemic, and reported only a few deaths.
 
 # Population-based statistics
 
