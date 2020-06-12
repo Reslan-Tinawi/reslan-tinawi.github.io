@@ -191,7 +191,7 @@ Although the U.S. has a much higher number of active cases than the UK, we can s
 
 Interestingly, this chart reveals completely new information.
 
-Belgium has the highest deaths per million people rate, with almost one thousand death million people.
+Belgium has the highest deaths per million people rate, with almost one thousand deaths per million people.
 
 The UK, Spain, Italy, France, and the Netherlands also have very high deaths per million people rate, which suggests that these European countries have lost many lives, although some of them don't have a very high death toll.
 
