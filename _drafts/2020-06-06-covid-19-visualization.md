@@ -197,12 +197,16 @@ The UK, Spain, Italy, France, and the Netherlands also have very high deaths per
 
 # Case fatality rate
 
+How deadly is this virus? and how likely is it that a person dies from this virus, after getting infected?
+
+In [Epidemiology](https://en.wikipedia.org/wiki/Epidemiology) (the science of studying diseases), a [case fatality rate (CFR)](https://en.wikipedia.org/wiki/Case_fatality_rate) is the proportion of people who die from a certain disease among all individuals diagnosed with the disease, and it's typically used as a measure of disease severity.
+
 {% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
 
 # Flatten the curve
 
 {% include covid-charts/most_affected_countries_daily_deaths_bar_chart.html %}
 
-# Link between aging and virus fatality
+# The relation between aging and virus fatality
 
 {% include covid-charts/age_vs_fatality_rate_scatter_plot.html %}
