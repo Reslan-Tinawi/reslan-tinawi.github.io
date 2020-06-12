@@ -73,7 +73,7 @@ We can also observe that the chart is divided into three (nearly) equal parts:
 
 - The U.S.
 
-- The U.K., Brazil, and Italy.
+- The UK, Brazil, and Italy.
 
 - And the remaining eleven countries.
 
@@ -97,7 +97,7 @@ One country that stands out among others is **Germany**, while it has as much co
 
 More on Germany's response to the pandemic in this article: [A German Exception? Why the Country’s Coronavirus Death Rate Is Low](https://www.nytimes.com/2020/04/04/world/europe/germany-coronavirus-death-rate.html)
 
-*Note*: Both U.K. and Netherlands have recovery cases, but it's very low, that it's not visible in the chart, quoting the dataset documentation of the recovery cases are computed:
+*Note*: Both The UK and Netherlands have recovery cases, but it's very low, that it's not visible in the chart, quoting the dataset documentation of the recovery cases are computed:
 
 > Recovered cases outside China are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number.
 
