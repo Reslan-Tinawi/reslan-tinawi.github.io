@@ -201,6 +201,8 @@ How deadly is this virus? and how likely is it that a person dies from this viru
 
 In [Epidemiology](https://en.wikipedia.org/wiki/Epidemiology) (the science of studying diseases), a [case fatality rate (CFR)](https://en.wikipedia.org/wiki/Case_fatality_rate) is the proportion of people who die from a certain disease among all individuals diagnosed with the disease, and it's typically used as a measure of disease severity.
 
+$$ e^{i \pi} = -1$$
+
 {% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
 
 # Flatten the curve
