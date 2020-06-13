@@ -219,7 +219,19 @@ Europe is known for its high percentage of elderly people, this might be related
 
 # Flatten the curve
 
+Flattening the curve involves reducing the number of new COVID-19 cases from one day to the next. This helps prevent healthcare systems from becoming overwhelmed.
+
+When a country has fewer new COVID-19 cases emerging today than it did on a previous day, that’s a sign that the country is flattening the curve.
+
+This chart illustrates the daily new deaths in the most hit countries.
+
+*Note*: in the upper-left of this figure, there's a dropdown menu, which you can use it to switch between countries.
+
 {% include covid-charts/most_affected_countries_daily_deaths_bar_chart.html %}
+
+Most countries have reached their peak value (in terms of daily deaths) in the time between late-March and early-April. The U.S. took a bit longer to reach the peak point, until the end of April.
+
+Brazil and Mexico, on the other hand, are recording increasing new deaths each day, and they are still far from reaching their peak values.
 
 # The relation between aging and virus fatality
 
