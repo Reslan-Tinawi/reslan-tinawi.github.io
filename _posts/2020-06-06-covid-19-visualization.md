@@ -235,4 +235,28 @@ Brazil and Mexico, on the other hand, are recording increasing new deaths each d
 
 # The relation between aging and virus fatality
 
+In this section I'll study the relation between the fatality rate and aging, which is important to address the question:
+
+> Do countries with higher percentages of the elderly have higher fatality rates?
+
+The following chart outlines the relationship between the percentage of elderly (people whose age is over 65 years) and the fatality rate, for 40 different countries.
+
+The size of each point in this plot is relative to the country's total death tolls.
+
 {% include covid-charts/age_vs_fatality_rate_scatter_plot.html %}
+
+We can see that the relation is not *quite* linear, the line of best fit (an ordinary least squares regression line) captures the linear relation between these two variables, and how the points should be scattered.
+
+This means that the fatality rate is affected by some other factors, like the quality of health care, country's GDP (Gross domestic product).
+
+From this chart, we can notice the following observations:
+
+- **Japan** has the highest percentage of elderly, but its fatality rate is very low, and its death toll is relatively low.
+
+- Both **Mexico** and **Ecuador** have low percentages of elderly (only 7%), however, they have a high fatality rate. This high percentage of fatality might be related to the fact that these countries are poor and don't have a well-prepared health system for dealing with this pandemic.
+
+- Most European countries have a high percentage of elderly (between 16% and 22%), but in terms of fatality rate, they cluster into two groups:
+
+  - High fatality rate countries: Belgium, the UK, France, Spain and Italy all have a fatality rate higher than 10%.
+
+  - Low fatality rate countries: Switzerland, Germany and Austria have a much lower fatality rate (lower than 7%) compared with their neighboring countries.
