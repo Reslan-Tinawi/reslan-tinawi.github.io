@@ -201,9 +201,21 @@ How deadly is this virus? and how likely is it that a person dies from this viru
 
 In [Epidemiology](https://en.wikipedia.org/wiki/Epidemiology) (the science of studying diseases), a [case fatality rate (CFR)](https://en.wikipedia.org/wiki/Case_fatality_rate) is the proportion of people who die from a certain disease among all individuals diagnosed with the disease, and it's typically used as a measure of disease severity.
 
-$$ e^{i \pi} = -1$$
+Here, I'll use the following equation to calculate the case fatality rate:
+
+$$ Case\ Fatality\ Rate\ (CFR) = \frac{total\ deaths \ast 100}{total\ confirmed\ cases}$$
 
 {% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
+
+We can see that Belgium has the highest fatality rate with 16% of confirmed cases are deaths, other countries that have *relatively* high fatality rate (more than 10%) are: France, Italy, the UK, Netherlands, Mexico and Spain.
+
+The fatality rate can be linked to many factors, like:
+
+- The quality of healthcare.
+
+- The average age of the population.
+
+Europe is known for its high percentage of elderly people, this might be related to the high fatality rates in this continent, the final section of this post is dedicated to study the association between aging and fatality rate.
 
 # Flatten the curve
 
