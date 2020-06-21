@@ -41,7 +41,7 @@ The population data might not be very accurate, as it was last updated in 2018, 
 
 The following pie chart shows the percentages of the three measures: active cases, recovered cases, and total deaths.
 
-At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 6% of the total cases are **deaths**, while around 42% had **recovered** from the virus.
+At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 5.5% of the total cases are **deaths**, while 44.5% had **recovered** from the virus.
 
 {% include covid-charts/overall_stats_pie_chart.html %}
 
@@ -73,7 +73,7 @@ We can also observe that the chart is divided into three (nearly) equal parts:
 
 - The U.S.
 
-- The UK, Brazil, and Italy.
+- Brazil, The UK, and Italy.
 
 - And the remaining eleven countries.
 
@@ -97,13 +97,13 @@ One country that stands out among others is **Germany**, while it has as much co
 
 More on Germany's response to the pandemic in this article: [A German Exception? Why the Country’s Coronavirus Death Rate Is Low](https://www.nytimes.com/2020/04/04/world/europe/germany-coronavirus-death-rate.html)
 
-*Note*: Both The UK and Netherlands have recovery cases, but it's very low, that it's not visible in the chart, quoting the dataset documentation of the recovery cases are computed:
+*Note*: Both The UK and Netherlands have very low number of recovery cases, that it's not visible in the chart, but the recoveries are estimates, so they are not accurate, quoting the dataset documentation of how the recovery cases are computed:
 
 > Recovered cases outside China are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number.
 
 # How contagious is the virus
 
-All the previous charts presented the aggregated statistics of the pandemic, ignoring the growth of the virus over time, and giving us no answer to how fast the virus is spreading, and how the number of deaths increases rapidly.
+All the previous charts presented the aggregated statistics of the pandemic, ignoring the growth of the virus over time, and giving us no answer of how fast the virus is spreading, and how the number of deaths is increasing rapidly?
 
 In this, and in the following section I'll take the time variable into account, to look at this pandemic from a different angle.
 
@@ -135,7 +135,7 @@ A choropleth map is a type of thematic map in which areas are colored relatively
 
 Here, I'll create two choropleth maps for depicting the death tolls globally and in the U.S. alone.
 
-In the previous *line charts* only a handful set of countries were shown, so the lines don't get cluttered and the figure doesn't lose its quality, using choropleth maps we can show the change in death tolls for all the countries.
+In the previous *line charts* only a handful set of countries were shown, so the lines don't get cluttered and the figure doesn't lose its quality, using choropleth maps we can show the growth of death tolls for all the countries.
 
 Another advantage of choropleth maps is that they provide geographical information, which can be useful to investigate clustering patterns of the virus.
 
@@ -149,7 +149,7 @@ The virus started in China, and it remained the epicenter of the epidemic until 
 
 Over the next few days, the cluster expanded more and more, to include more neighboring countries, among these countries: the UK, Netherlands, Germany, and Belgium.
 
-After passing 10 days of April, the U.S. death tolls have surpassed Italy's, to become the new epicenter.
+After passing the first 10 days of April, the U.S. death tolls have surpassed Italy's, to become the new epicenter.
 
 ## U.S. deaths Choropleth map
 
@@ -161,7 +161,7 @@ By late-March, different states were reporting deaths, and *New York* was on the
 
 New York remained the most-hit state in the U.S., and by late-May, a cluster of neighboring states with the highest death tolls have emerged, consisting of: New York, New Jersey, Massachusetts, Pennsylvania and Connecticut.
 
-This 5-states cluster reported the highest death tolls among other states, with nearly 60 thousand deaths, which is more than *half* of the U.S. total death tolls.
+This 5-states cluster reported the highest death tolls among other states, with nearly 63 thousand deaths, which is more than *half* of the U.S. total death tolls.
 
 It's clear that the pandemic has affected the U.S. states disproportionally, some states reported very high death tolls (in terms of thousands, and ten thousand), while others were barely affected by this pandemic, and reported only a few deaths.
 
@@ -233,6 +233,8 @@ Most countries have reached their peak value (in terms of daily deaths) in the t
 
 Brazil and Mexico, on the other hand, are recording increasing new deaths each day, and they are still far from reaching their peak values.
 
+Iran is going through what is called a *second wave*, the daily deaths kept decreasing until the beginning of June, after that the daily deaths started to increase again, which may *suggests* that there's a second wave of high deaths in this country.
+
 # The relation between aging and virus fatality
 
 In this section I'll study the relation between the fatality rate and aging, which is important to address the question:
@@ -247,7 +249,7 @@ The size of each point in this plot is relative to the country's total death tol
 
 We can see that the relation is not *quite* linear, the line of best fit (an ordinary least squares regression line) captures the linear relation between these two variables, and how the points should be scattered.
 
-This means that the fatality rate is affected by some other factors, like the quality of health care, country's GDP (Gross domestic product).
+The points are not spread near the line, so the relation is not linear, which means that the fatality rate is affected by some other factors, like the quality of health care, country's GDP (Gross domestic product).
 
 From this chart, we can notice the following observations:
 
