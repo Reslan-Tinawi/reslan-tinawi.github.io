@@ -213,6 +213,8 @@ Here, I'll use the following equation to calculate the case fatality rate:
 
 $$ Case\ Fatality\ Rate\ (CFR) = \frac{total\ deaths \ast 100}{total\ confirmed\ cases}$$
 
+The chart here describes fatality rate for the most 15 hit countries:
+
 {% include covid-charts/most_affected_countries_fatality_rate_bar_chart.html %}
 
 We can see that Belgium has the highest fatality rate with 16% of confirmed cases are deaths, other countries that have *relatively* high fatality rate (more than 10%) are: France, Italy, the UK, Netherlands, Mexico and Spain.
@@ -223,7 +225,7 @@ The fatality rate can be linked to many factors, like:
 
 - The average age of the population.
 
-Europe is known for its high percentage of elderly people, this might be related to the high fatality rates in this continent, the final section of this post is dedicated to study the association between aging and fatality rate.
+Europe is known for its high percentage of elderly people, this might be related to the high fatality rates in this continent, the final section of this post is dedicated to study the relation (if any) between aging and fatality rate.
 
 # Flatten the curve
 
@@ -233,15 +235,15 @@ When a country has fewer new COVID-19 cases emerging today than it did on a prev
 
 This chart illustrates the daily new deaths in the most hit countries.
 
-*Note*: in the upper-left of this figure, there's a dropdown menu, which you can use it to switch between countries.
+*Note*: in the upper-left corner of this figure, there's a dropdown menu, which you can use it to switch between countries.
 
 {% include covid-charts/most_affected_countries_daily_deaths_bar_chart.html %}
 
 Most countries have reached their peak value (in terms of daily deaths) in the time between late-March and early-April. The U.S. took a bit longer to reach the peak point, until the end of April.
 
-Brazil and Mexico, on the other hand, are recording increasing new deaths each day, and they are still far from reaching their peak values.
+Most countries are reporting lower deaths every day (after reaching the peak point).
 
-Iran is going through what is called a *second wave*, the daily deaths kept decreasing until the beginning of June, after that the daily deaths started to increase again, which may *suggests* that there's a second wave of high deaths in this country.
+Iran is going through what is called a *second wave*, the daily deaths kept decreasing until the beginning of June, after that the daily deaths started to increase again, which may *suggests* that there's a second wave of high deaths in this country, and on June 29 it reached a new peak value!
 
 # The relation between aging and virus fatality
 
