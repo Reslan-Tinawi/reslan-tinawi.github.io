@@ -265,10 +265,10 @@ From this chart, we can notice the following observations:
 
 - **Japan** has the highest percentage of elderly, but its fatality rate is very low, and its death toll is relatively low.
 
-- Both **Mexico** and **Ecuador** have low percentages of elderly (only 7%), however, they have a high fatality rate. This high percentage of fatality might be related to the fact that these countries are poor and don't have a well-prepared health system for dealing with this pandemic.
+- Both **Mexico** and **Ecuador** have low percentages of elderly (only 7%), however, they have a high fatality rate. This high percentage of fatality might be related to the fact that these countries are poor countries, and don't have a well-prepared health system for dealing with this pandemic.
 
 - Most European countries have a high percentage of elderly (between 16% and 22%), but in terms of fatality rate, they cluster into two groups:
 
   - High fatality rate countries: Belgium, the UK, France, Spain and Italy all have a fatality rate higher than 10%.
 
-  - Low fatality rate countries: Switzerland, Germany and Austria have a much lower fatality rate (lower than 7%) compared with their neighboring countries.
+  - Low fatality rate countries: Switzerland, Germany and Portugal have a much lower fatality rate (less than 7%) compared with their neighboring countries.
