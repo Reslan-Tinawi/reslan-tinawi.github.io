@@ -109,7 +109,7 @@ More on Germany's response to the pandemic in this article: [A German Exception?
 
 All the previous charts presented the aggregated statistics of the pandemic, ignoring the growth of the virus over time, and giving us no answer of how fast the virus is spreading, and how the number of deaths is increasing rapidly?
 
-In this, and in the following section I'll take the time variable into account, to look at this pandemic from a different angle.
+In this, and in the following section I'll take the *time variable* into account, to look at this pandemic from a different angle.
 
 The following three charts illustrate the accumulated sum of active cases, deaths, and recovered cases over time.
 
@@ -129,7 +129,7 @@ At first look, we can observe that the death tolls are growing exponentially! an
 
 - The number of infections in the U.S. has skyrocketed in no time.
 
-- While most countries have reached *more or less* their peak value in terms of death toll, Brazil and Mexico are still far from reaching theirs.
+- While most countries have reached *more or less* their peak value in terms of death tolls, Brazil and Mexico are still far from reaching theirs.
 
 - Italy, Spain, France and the UK were almost identical in their death tolls, until the beginning of May, then the UK surpassed Italy in the recorded deaths, and became Europe's COVID-19 epicenter.
 
