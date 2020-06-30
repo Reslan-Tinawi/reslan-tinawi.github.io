@@ -155,17 +155,19 @@ Over the next few days, the cluster expanded more and more, to include more neig
 
 After passing the first 10 days of April, the U.S. death tolls have surpassed Italy's, to become the new epicenter.
 
+By mid-June Brazil's death tolls surpassed all the other European countries, and it became the second deadliest country, after the U.S.
+
 ## U.S. deaths Choropleth map
 
 {% include covid-charts/us_deaths_choropleth_map.html %}
 
 Looking closer at the U.S. deaths (over time) at the state-level, we see that the first deaths were reported in Washington in early-March.
 
-By late-March, different states were reporting deaths, and *New York* was on the lead, with nearly 2,500 death toll.
+By late-March, different states were reporting deaths, and *New York* was on the lead, with nearly 2,500 deaths.
 
 New York remained the most-hit state in the U.S., and by late-May, a cluster of neighboring states with the highest death tolls have emerged, consisting of: New York, New Jersey, Massachusetts, Pennsylvania and Connecticut.
 
-This 5-states cluster reported the highest death tolls among other states, with nearly 63 thousand deaths, which is more than *half* of the U.S. total death tolls.
+This 5-states cluster reported the highest death tolls among other states, with nearly 65 thousand deaths, which is more than *half* of the U.S. total death tolls.
 
 It's clear that the pandemic has affected the U.S. states disproportionally, some states reported very high death tolls (in terms of thousands, and ten thousand), while others were barely affected by this pandemic, and reported only a few deaths.
 
