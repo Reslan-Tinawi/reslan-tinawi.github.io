@@ -9,11 +9,9 @@ toc: true
 custom_css: plotly
 ---
 
-**Last Updated: 20/06/2020**
-
 # What is this post about
 
-In this post I'll present different visuals of the novel *Corona virus (COVID-19)*, to show how it impacted the whole world disproportionately, and how contagious it is.
+In this post I'll present different visuals of the novel *Coronavirus (COVID-19)*, to show how it impacted the whole world disproportionately, and how contagious it is.
 
 I'll use dataset from the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) which contains daily aggregated data, and time series data.
 
@@ -36,6 +34,12 @@ I'll also use two data sources from the [World Bank Group](https://www.worldbank
 - [Population ages 65 and above as a percentage of the total population](https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS).
 
 The population data might not be very accurate, as it was last updated in 2018, but that won't be a problem.
+
+All the visualizations were created using the amazing library: [Plotly](https://plotly.com/python/).
+
+The code for data analysis and visualization can be found [here](https://github.com/Reslan-Tinawi/COVID-19-Visualization).
+
+*Note*: this post is not intended to be a real-time dashboard of the COVID-19 cases, therefore it won't be updated anymore, the data used here is from 22/01/2020 till 30/06/2020.
 
 # Overall statistics pie chart
 
