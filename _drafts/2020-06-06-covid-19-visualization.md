@@ -45,7 +45,7 @@ The code for data analysis and visualization can be found [here](https://github.
 
 The following pie chart shows the percentages of the three measures: active cases, recovered cases, and total deaths.
 
-At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 5.5% of the total cases are **deaths**, while 44.5% had **recovered** from the virus.
+At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 5% of the total cases are **deaths**, while 51% of the cases had **recovered** from the virus.
 
 {% include covid-charts/overall_stats_pie_chart.html %}
 
@@ -91,7 +91,7 @@ Later in this post, I'll introduce another measures based on the countries popul
 
 The previous chart showed us only the death tolls, and discarded the other two variables: active cases, and recovery cases.
 
-The following chart explores the three measures for each country.
+The chart below explores the three measures for each country.
 
 {% include covid-charts/most_affected_countries_stacked_bar_chart.html %}
 
@@ -101,7 +101,7 @@ One country that stands out among others is **Germany**, while it has as much co
 
 More on Germany's response to the pandemic in this article: [A German Exception? Why the Country’s Coronavirus Death Rate Is Low](https://www.nytimes.com/2020/04/04/world/europe/germany-coronavirus-death-rate.html)
 
-*Note*: Both The UK and Netherlands have very low number of recovery cases, that it's not visible in the chart, but the recoveries are estimates, so they are not accurate, quoting the dataset documentation of how the recovery cases are computed:
+*Note*: Both The UK and Netherlands have very low number of recovery cases, that the recovery cases in these countries are not visible in the chart, but the recoveries are estimates, so they are not accurate, quoting the dataset documentation of how the recovery cases are computed:
 
 > Recovered cases outside China are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number.
 
