@@ -175,9 +175,9 @@ It's clear that the pandemic has affected the U.S. states disproportionally, som
 
 So far different types of charts were employed to study the data, and answer different questions, but they all treated different countries the same.
 
-To understand how this pandemic has impacted on different countries, it's not enough to compare countries by their death tolls, for example, **Germany** and **Belgium** have nearly equal death tolls, but their population sizes are relatively different, where Germany's population size equal to 7 times of Belgium's population, which means that Belgium has a *much worse* situation compared to Germany.
+To understand how this pandemic has impacted on different countries, it's not enough to compare countries by their death tolls, for example, **Germany** and **Belgium** have almost equal death tolls, but their population sizes are relatively different, where Germany's population size is equal to almost 7 times of Belgium's population, which means that Belgium has a *much worse* situation compared to Germany.
 
-An important data that has been ignored so far is the population size data in each country, which can be used to show the relative number of deaths/active cases compared to the country's population size.
+An important data that has been ignored so far is the population size data in each country, which can be used to show the relative number of deaths / active cases compared to the country's population size.
 
 Here, in this section, I'll use population size data, and introduce two new measures:
 
@@ -200,6 +200,8 @@ Interestingly, this chart reveals completely new information.
 Belgium has the highest deaths per million people rate, with almost one thousand deaths per million people.
 
 The UK, Spain, Italy, France, and the Netherlands also have very high deaths per million people rate, which suggests that these European countries have lost many lives, although some of them don't have a very high death toll.
+
+India is a high populated country, that's why it has very low deaths per million rate.
 
 # Case fatality rate
 
