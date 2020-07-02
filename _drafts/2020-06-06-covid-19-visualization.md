@@ -35,17 +35,15 @@ I'll also use two data sources from the [World Bank Group](https://www.worldbank
 
 The population data might not be very accurate, as it was last updated in 2018, but that won't be a problem.
 
-All the visualizations were created using the amazing library: [Plotly](https://plotly.com/python/).
+All the visualizations were created using the amazing library: [Plotly](https://plotly.com/python/). The code used for data analysis and visualization can be found [here](https://github.com/Reslan-Tinawi/COVID-19-Visualization).
 
-The code for data analysis and visualization can be found [here](https://github.com/Reslan-Tinawi/COVID-19-Visualization).
-
-*Note*: this post is not intended to be a real-time dashboard of the COVID-19 cases, therefore it won't be updated anymore, the data used here is from 22/01/2020 till 30/06/2020.
+*Note*: this post is not intended to be a real-time dashboard of the COVID-19 cases, therefore it won't be updated anymore, the data used here is from `22/01/2020` till `01/07/2020`.
 
 # Overall statistics pie chart
 
 The following pie chart shows the percentages of the three measures: active cases, recovered cases, and total deaths.
 
-At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 5% of the total cases are **deaths**, while 51% of the cases had **recovered** from the virus.
+At first sight, this chart comforts us! the virus doesn't seem to be very *fatal*, only about 5% of the total cases are **deaths**, while 52% of the cases had **recovered** from the virus.
 
 {% include covid-charts/overall_stats_pie_chart.html %}
 
@@ -167,7 +165,7 @@ By late-March, different states were reporting deaths, and *New York* was on the
 
 New York remained the most-hit state in the U.S., and by late-May, a cluster of neighboring states with the highest death tolls have emerged, consisting of: New York, New Jersey, Massachusetts, Pennsylvania and Connecticut.
 
-This 5-states cluster reported the highest death tolls among other states, with nearly 65 thousand deaths, which is more than *half* of the U.S. total death tolls.
+This 5-states cluster reported the highest death tolls among other states, with nearly 66 thousand deaths, which is more than *half* of the U.S. total death tolls.
 
 It's clear that the pandemic has affected the U.S. states disproportionally, some states reported very high death tolls (in terms of thousands, and ten thousand), while others were barely affected by this pandemic, and reported only a few deaths.
 
