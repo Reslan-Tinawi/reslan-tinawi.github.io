@@ -465,10 +465,6 @@ fig.show()
 
 {% include graduate-admission-figures/1_gre_score_distribution.html %}
 
-```python
-fig.write_html("figures/1_gre_score_distribution.html", include_plotlyjs="cdn")
-```
-
 We can conclude from the previous chart the following:
 
 - The GRE scores are _very close_ to a normal distribution, with a small negative skewnewss (left skewed).
@@ -522,10 +518,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/2_toefl_score_distribution.html %}
-
-```python
-fig.write_html("figures/2_toefl_score_distribution.html", include_plotlyjs="cdn")
-```
 
 ```python
 df["TOEFL Score"].value_counts()[:4]
@@ -586,10 +578,6 @@ fig.show()
 
 {% include graduate-admission-figures/3_uni_rating_distribution.html %}
 
-```python
-fig.write_html("figures/3_uni_rating_distribution.html", include_plotlyjs="cdn")
-```
-
 We can see that the most common rating is in the middle: `3`. The chart shows that the ratings are distributed in a similar fashion to the normal distrbution.
 
 ### `SOP`
@@ -635,10 +623,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/4_sop_distribution.html %}
-
-```python
-fig.write_html("figures/4_sop_distribution.html", include_plotlyjs="cdn")
-```
 
 Most students estimated the strength of their _Statement of Purpose_ between `3` and `4`.
 
@@ -686,10 +670,6 @@ fig.show()
 
 {% include graduate-admission-figures/5_lor_distribution.html %}
 
-```python
-fig.write_html("figures/5_lor_distribution.html", include_plotlyjs="cdn")
-```
-
 Most of the students rated the strength of ther _Letter of Recommendation_ between `3` and `4`.
 
 ### `CGPA`
@@ -732,10 +712,6 @@ fig.show()
 
 {% include graduate-admission-figures/5_lor_distribution.html %}
 
-```python
-fig.write_html("figures/6_cgpa_distribution.html", include_plotlyjs="cdn")
-```
-
 As we can see, this variable is _very_ close to a normal distribution, with a small negative (left) skewness, and there are no outliers.
 
 ### `Research`
@@ -772,10 +748,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/7_research_distribution.html %}
-
-```python
-fig.write_html("figures/7_research_distribution.html", include_plotlyjs="cdn")
-```
 
 From this plot, we can see that the number of students who have a research experience is _almost_ equal to the number of students who don't.
 
@@ -821,10 +793,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/8_chance_of_admit_distribution.html %}
-
-```python
-fig.write_html("figures/8_chance_of_admit_distribution.html", include_plotlyjs="cdn")
-```
 
 ```python
 df[df["Chance of Admit"] < 0.36]
@@ -935,12 +903,6 @@ fig.show()
 
 {% include graduate-admission-figures/9_numerical_variables_correlation_matrix.html %}
 
-```python
-fig.write_html(
-    "figures/9_numerical_variables_correlation_matrix.html", include_plotlyjs="cdn"
-)
-```
-
 We can see from the correlation matrix that the three variables have a strong positive correlation. We'll look closer at the relations between variables using scatter plots.
 
 ### Scatter plot
@@ -962,10 +924,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/10_toefl_gre_cgpa_scatter_matrix.html %}
-
-```python
-fig.write_html("figures/10_toefl_gre_cgpa_scatter_matrix.html", include_plotlyjs="cdn")
-```
 
 It's evident from these plots that the relation between the variables is positive linear relation, with some outlier points, and they all have an upward trend.
 
@@ -992,10 +950,6 @@ fig.show()
 
 {% include graduate-admission-figures/11_toefl_gre_scatter.html %}
 
-```python
-fig.write_html("figures/11_toefl_gre_scatter.html", include_plotlyjs="cdn")
-```
-
 #### `TOEFL Score` vs. `CGPA`
 
 ```python
@@ -1017,10 +971,6 @@ fig.show()
 
 {% include graduate-admission-figures/12_toefl_cgpa_scatter.html %}
 
-```python
-fig.write_html("figures/12_toefl_cgpa_scatter.html", include_plotlyjs="cdn")
-```
-
 #### `GRE Score` vs. `CGPA`
 
 ```python
@@ -1041,10 +991,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/13_gre_cgpa_scatter.html %}
-
-```python
-fig.write_html("figures/13_gre_cgpa_scatter.html", include_plotlyjs="cdn")
-```
 
 From the previous three charts we can say that: students who perform well in their `TOEFL` exams tend to also perform well in `GRE` exams, and they _mostly_ have high `GPA` (higher than 9).
 
@@ -1072,10 +1018,6 @@ fig.show()
 
 {% include graduate-admission-figures/14_toefl_gre_joint_distribution.html %}
 
-```python
-fig.write_html("figures/14_toefl_gre_joint_distribution.html", include_plotlyjs="cdn")
-```
-
 We can see from this chart some _clusters_ (regions).
 
 For example there are two clusters of students who scored between `110` and `115` in the `TOEFL` exam and between `320` and `330` in the `GRE` exam. These two clusters account for about 100 students (which is 20% of the total dataset).
@@ -1096,10 +1038,6 @@ fig.show()
 
 {% include graduate-admission-figures/15_toefl_cgpa_joint_distribution.html %}
 
-```python
-fig.write_html("figures/15_toefl_cgpa_joint_distribution.html", include_plotlyjs="cdn")
-```
-
 This chart shows that about `170` students has `TOEFL` score in range `[105-115]` and their `CGPA` is in range `[8-9]`
 
 #### `GRE Score` vs. `CGPA`
@@ -1117,10 +1055,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/16_gre_cgpa_joint_distribution.html %}
-
-```python
-fig.write_html("figures/16_gre_cgpa_joint_distribution.html", include_plotlyjs="cdn")
-```
 
 This chart shows that almost `120` students has `GRE` scores in the range `[310-320]` and their `CGPA` is in thae range `[8-9]`.
 
@@ -1145,12 +1079,6 @@ fig.show()
 {% include graduate-admission-figures/17_toefl_conditional_distribution_on_research.html %}
 
 ```python
-fig.write_html(
-    "figures/17_toefl_conditional_distribution_on_research.html", include_plotlyjs="cdn"
-)
-```
-
-```python
 fig = px.histogram(
     data_frame=df,
     x="GRE Score",
@@ -1165,12 +1093,6 @@ fig.show()
 {% include graduate-admission-figures/18_gre_conditional_distribution_on_research.html %}
 
 ```python
-fig.write_html(
-    "figures/18_gre_conditional_distribution_on_research.html", include_plotlyjs="cdn"
-)
-```
-
-```python
 fig = px.histogram(
     data_frame=df,
     x="CGPA",
@@ -1183,12 +1105,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/19_cgpa_conditional_distribution_on_research.html %}
-
-```python
-fig.write_html(
-    "figures/19_cgpa_conditional_distribution_on_research.html", include_plotlyjs="cdn"
-)
-```
 
 We can see that students who engage in research activities and have research experience, tend to perform better in both _TOEFL_ and _GRE_ exams, and they have higher _GPA_, in comparison to students who have no research experience.
 
@@ -1216,13 +1132,6 @@ fig.show()
 {% include graduate-admission-figures/20_toefl_conditional_distribution_on_uni_rating.html %}
 
 ```python
-fig.write_html(
-    "figures/20_toefl_conditional_distribution_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
-
-```python
 fig = px.histogram(
     data_frame=df,
     x="GRE Score",
@@ -1238,13 +1147,6 @@ fig.show()
 {% include graduate-admission-figures/21_gre_conditional_distribution_on_uni_rating.html %}
 
 ```python
-fig.write_html(
-    "figures/21_gre_conditional_distribution_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
-
-```python
 fig = px.histogram(
     data_frame=df,
     x="CGPA",
@@ -1258,13 +1160,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/22_cgpa_conditional_distribution_on_uni_rating.html %}
-
-```python
-fig.write_html(
-    "figures/22_cgpa_conditional_distribution_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
 
 The university ranking plays an important role in student's scores and GPA, we can observe that students who go to higher ranking universities, have higher scores in the _TOEFL_ and _GRE_ exams, and they have higher _GPA_.
 
@@ -1297,13 +1192,6 @@ fig.show()
 
 {% include graduate-admission-figures/23_toefl_gre_cgp_scatter_conditional_on_research.html %}
 
-```python
-fig.write_html(
-    "figures/23_toefl_gre_cgp_scatter_conditional_on_research.html",
-    include_plotlyjs="cdn",
-)
-```
-
 We can how students who have research experience tend to have higher scores and better GPA.
 
 ### Bivariate distribution with `University Rating`
@@ -1331,13 +1219,6 @@ fig.show()
 
 {% include graduate-admission-figures/24_toefl_gre_joint_distribution_conditional_on_uni_rating.html %}
 
-```python
-fig.write_html(
-    "figures/24_toefl_gre_joint_distribution_conditional_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
-
 #### `TOEFL Score` vs. `CGPA`
 
 ```python
@@ -1355,13 +1236,6 @@ fig.show()
 
 {% include graduate-admission-figures/25_toefl_cgpa_joint_distribution_conditional_on_uni_rating.html %}
 
-```python
-fig.write_html(
-    "figures/25_toefl_cgpa_joint_distribution_conditional_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
-
 #### `GRE Score` vs. `CGPA`
 
 ```python
@@ -1378,13 +1252,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/26_gre_cgpa_joint_distribution_conditional_on_uni_rating.html %}
-
-```python
-fig.write_html(
-    "figures/26_gre_cgpa_joint_distribution_conditional_on_uni_rating.html",
-    include_plotlyjs="cdn",
-)
-```
 
 All these charts support our previous hypothesis: **University ranking influences positively student's performance.**
 
@@ -1419,13 +1286,6 @@ fig.show()
 
 {% include graduate-admission-figures/27_toefl_gre_scatter_conditional_on_uni_rating_and_research.html %}
 
-```python
-fig.write_html(
-    "figures/27_toefl_gre_scatter_conditional_on_uni_rating_and_research.html",
-    include_plotlyjs="cdn",
-)
-```
-
 #### `TOEFL Score` vs. `CGPA`
 
 ```python
@@ -1445,13 +1305,6 @@ fig.show()
 
 {% include graduate-admission-figures/28_toefl_cgpa_scatter_conditional_on_uni_rating_and_research.html %}
 
-```python
-fig.write_html(
-    "figures/28_toefl_cgpa_scatter_conditional_on_uni_rating_and_research.html",
-    include_plotlyjs="cdn",
-)
-```
-
 #### `GRE Score` vs. `CGPA`
 
 ```python
@@ -1470,13 +1323,6 @@ fig.show()
 ```
 
 {% include graduate-admission-figures/29_gre_cgpa_scatter_conditional_on_uni_rating_and_research.html %}
-
-```python
-fig.write_html(
-    "figures/29_gre_cgpa_scatter_conditional_on_uni_rating_and_research.html",
-    include_plotlyjs="cdn",
-)
-```
 
 As we can see, higher university ranking is linked with research experience, and they both affects student's scores and GPA.
 
