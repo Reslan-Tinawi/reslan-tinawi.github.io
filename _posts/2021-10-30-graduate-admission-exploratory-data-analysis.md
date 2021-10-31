@@ -887,7 +887,10 @@ The pearson coefficient is a measure of the linear correlation between two varia
 
 A negative value indicates a negative correlation (i.e. when one variable _increases_ the other _decreases_), and a positive value is the opposite (the two variables _increases_/_decreases_ at the same time)
 
-![Correlation coefficient](https://upload.wikimedia.org/wikipedia/commons/3/34/Correlation_coefficient.png)
+<!-- ![Correlation coefficient](https://upload.wikimedia.org/wikipedia/commons/3/34/Correlation_coefficient.png) -->
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Correlation_coefficient.png">
+</p>
 
 Here, we'll compute the correlations only for `GRE Score`, `TOEFL Score` and `CGPA` variables, because they are _numeric_ variables, and they weren't estimated by the students themselves.
 
