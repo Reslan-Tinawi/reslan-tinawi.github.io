@@ -1,6 +1,14 @@
+---
+title: Exploratory Data Analysis of Graduate Admission data
+layout: single
+classes: wide
+toc: true
+custom_css: plotly
+---
+
 # Introduction
 
-In this notebook I'll apply different EDA (Exploratory Data Analysis) techniques on the [Graduate Admission 2 data](https://www.kaggle.com/mohansacharya/graduate-admissions).
+In this post, I'll apply different EDA (Exploratory Data Analysis) techniques on the [Graduate Admission 2 data](https://www.kaggle.com/mohansacharya/graduate-admissions).
 
 The goal in this data is to predict the _student's chance of admission_ to a postgraduate education, given several _predictor_ variables for the student.
 
@@ -18,7 +26,8 @@ There are two data files:
 
 - `Admission_Predict.csv`
 - `Admission_Predict_Ver1.1.csv`
-  Will use the second one, since it contains more data points.
+
+Will use the second one, since it contains more data points.
 
 ```python
 df = pd.read_csv("data/Admission_Predict_Ver1.1.csv")
@@ -44,98 +53,98 @@ df.head()
 ```
 
 <div>
-<style scoped>
+  <style scoped>
     .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+      vertical-align: middle;
     }
 
     .dataframe tbody tr th {
-        vertical-align: top;
+      vertical-align: top;
     }
 
     .dataframe thead th {
-        text-align: right;
+      text-align: right;
     }
 
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Serial No.</th>
-      <th>GRE Score</th>
-      <th>TOEFL Score</th>
-      <th>University Rating</th>
-      <th>SOP</th>
-      <th>LOR</th>
-      <th>CGPA</th>
-      <th>Research</th>
-      <th>Chance of Admit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>337</td>
-      <td>118</td>
-      <td>4</td>
-      <td>4.5</td>
-      <td>4.5</td>
-      <td>9.65</td>
-      <td>1</td>
-      <td>0.92</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>324</td>
-      <td>107</td>
-      <td>4</td>
-      <td>4.0</td>
-      <td>4.5</td>
-      <td>8.87</td>
-      <td>1</td>
-      <td>0.76</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>316</td>
-      <td>104</td>
-      <td>3</td>
-      <td>3.0</td>
-      <td>3.5</td>
-      <td>8.00</td>
-      <td>1</td>
-      <td>0.72</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>322</td>
-      <td>110</td>
-      <td>3</td>
-      <td>3.5</td>
-      <td>2.5</td>
-      <td>8.67</td>
-      <td>1</td>
-      <td>0.80</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>314</td>
-      <td>103</td>
-      <td>2</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>8.21</td>
-      <td>0</td>
-      <td>0.65</td>
-    </tr>
-  </tbody>
-</table>
+  </style>
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right">
+        <th></th>
+        <th>Serial No.</th>
+        <th>GRE Score</th>
+        <th>TOEFL Score</th>
+        <th>University Rating</th>
+        <th>SOP</th>
+        <th>LOR</th>
+        <th>CGPA</th>
+        <th>Research</th>
+        <th>Chance of Admit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>0</th>
+        <td>1</td>
+        <td>337</td>
+        <td>118</td>
+        <td>4</td>
+        <td>4.5</td>
+        <td>4.5</td>
+        <td>9.65</td>
+        <td>1</td>
+        <td>0.92</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>2</td>
+        <td>324</td>
+        <td>107</td>
+        <td>4</td>
+        <td>4.0</td>
+        <td>4.5</td>
+        <td>8.87</td>
+        <td>1</td>
+        <td>0.76</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>3</td>
+        <td>316</td>
+        <td>104</td>
+        <td>3</td>
+        <td>3.0</td>
+        <td>3.5</td>
+        <td>8.00</td>
+        <td>1</td>
+        <td>0.72</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>4</td>
+        <td>322</td>
+        <td>110</td>
+        <td>3</td>
+        <td>3.5</td>
+        <td>2.5</td>
+        <td>8.67</td>
+        <td>1</td>
+        <td>0.80</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>5</td>
+        <td>314</td>
+        <td>103</td>
+        <td>2</td>
+        <td>2.0</td>
+        <td>3.0</td>
+        <td>8.21</td>
+        <td>0</td>
+        <td>0.65</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 ```python
