@@ -12,6 +12,8 @@ In this post, I'll apply different EDA (Exploratory Data Analysis) techniques on
 
 The goal in this data is to predict the _student's chance of admission_ to a postgraduate education, given several _predictor_ variables for the student.
 
+The code can be found on GitHub at this repo: [Graduate-admission](www.google.com).
+
 # Import libraries
 
 ```python
