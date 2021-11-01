@@ -719,7 +719,7 @@ fig = fig = px.histogram(
 fig.show()
 ```
 
-{% include graduate-admission-figures/5_lor_distribution.html %}
+{% include graduate-admission-figures/6_cgpa_distribution.html %}
 
 As we can see, this variable is _very_ close to a normal distribution, with a small negative (left) skewness, and there are no outliers.
 
@@ -1335,7 +1335,7 @@ fig.show()
 
 {% include graduate-admission-figures/29_gre_cgpa_scatter_conditional_on_uni_rating_and_research.html %}
 
-As we can see, higher university ranking is linked with research experience, and they both affects student's scores and GPA.
+As we can see, higher university ranking is linked with having research experience, and they both affect student's scores and GPA.
 
 We can also see that there are some _outlier_ points, where student goes to a low-ranking university and has no research experience, but have _good_ scores.
 
