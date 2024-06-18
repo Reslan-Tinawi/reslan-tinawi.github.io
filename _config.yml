@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -35,12 +35,12 @@ analytics:
     tracking_id: "UA-167142401-1"
 
 author:
-  name     : "Reslan Tinawi"
-  avatar   : "/assets/images/bio-photo.jpeg"
-  bio      : "Machine Learning Enthusiast"
-  location : "Damascus, Syria"
-  linkedin : "reslan-al-tinawi-33b7b482"
-  github   : "Reslan-Tinawi" 
+  name: "Reslan Tinawi"
+  avatar: "/assets/images/bio-photo.jpeg"
+  bio: "Machine Learning Enthusiast"
+  location: "Damascus, Syria"
+  linkedin: "reslan-al-tinawi"
+  github: "Reslan-Tinawi"
 
 minimal_mistakes_skin: "dark"
 github: [metadata]
@@ -63,7 +63,6 @@ defaults:
       comments: true
       share: true
       related: true
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
